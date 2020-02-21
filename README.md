@@ -102,8 +102,8 @@ new Logz.Builder()
 ```
 
 Method | Default | Values | Usage | Desc | Example
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
-setTag | "LOGZ" | String | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
+--- | --- | --- | --- |--- |---
+setTag | "LOGZ" | String | 290 | 286 | 289
 
 ### Advanced
 - Remove extra logs
