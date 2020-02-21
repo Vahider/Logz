@@ -30,7 +30,7 @@ allprojects {
 ```
 
 ### Document
-> Tip: for add `title` to every log, add string and split with `,` before everythings example: `Logz.i(title, everythings);`
+> **Tip**: for add *title* to every log, add String and split with `,` before everythings example: `Logz.i(title, everythings);`
 ###### Normal log
 ```
 Logz.v(eveythings);
@@ -97,11 +97,21 @@ setTitleCase | Case.CAMEL_SPACE | `CAMEL` `CAMEL_SPACE` `NONE` | Difference titl
 showElapsing | true | `true` `false` | Show offset between logs if was above 3 secounds  | Everytime
 useViewDetection | true | `true` `false` | Show views shortly and with id | Everytime
 
-### Advanced
-- Remove extra logs
-- Color
-
-### Settings
+### Advanced settings
+For get better expensive from logging, pass below levels and feel changes.
+###### Hide old info
+For remove old logs's info and shortly too, you must be click on left settings icon in logcat, and remove all ticks.
+###### Hide extra logs
+For show just your log, you must be create new filter in logcat. click on Filter, then click on Edit filter configuration and set name for filter and write `⌬` in Log message field.
+###### Use coloric text
+For better detection log, you can change log colors in android studio settings.
+go to File>Settings>Editor>ColorScheme>ConsoleColors and click on Log Console then change every log levels.
+###### Use same width font
+For better expencive, use font that same of characters width.
+go to File>Settings>Editor>ColorScheme>ConsoleFont and use same width font example `Consolas`
+###### Open logcat fastest
+Put Alt+6 for open and close logcat
+###### Change Color
 
 ### Samples
 
