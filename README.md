@@ -1,8 +1,8 @@
 # ⌬ 𝓛𝓸𝓰𝔃
 Very simple, practical, attractive and powerful logger for android
 
-## Possibilities
-- Show content list(List,Array,Map,Set)
+### Possibilities
+- Show list content
 - Draw chart
 - Open json format
 - View detection
@@ -15,17 +15,18 @@ Very simple, practical, attractive and powerful logger for android
 - Adapted with crashing
 - Set title for logging
 
-## Setup
+### Setup
 
-## Document
 
-## Options
+### Document
 
-## Advanced
+### Options
+
+### Advanced
 - Remove extra logs
 
-## Settings
+### Settings
 
-## Samples
+### Samples
 
-## Licence
+### Licence
