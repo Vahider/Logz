@@ -101,7 +101,7 @@ new Logz.Builder()
       .reload();
 ```
 
-Method | Default | Type | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
+Method | Default | Values | Usage | Desc | Example
 --- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
 setTag | "LOGZ" | String | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
 
