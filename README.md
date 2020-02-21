@@ -104,6 +104,7 @@ new Logz.Builder()
 Method | Default | Values | Usage | Desc | Example
 --- | --- | --- | --- |--- |---
 setTag | "LOGZ" | String | 290 | 286 | 289
+--- | --- | --- | --- |--- |---
 setTag | "LOGZ" | String | 290 | 286 | 289
 setTag | "LOGZ" | String | 290 | 286 | 289
 
