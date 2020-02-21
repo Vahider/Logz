@@ -16,12 +16,11 @@ Very simple, practical, attractive and powerful logger for android
 - Set title for logging
 
 ### Setup
-###### Downlaod
-in biuld.gradle (Module app)
+###### in biuld.gradle (Module app)
 ```
 > implementation 'com.github.Vahider:Logz:0.1.0'
 ```
-in biuld.gradle (project)
+###### in biuld.gradle (project)
 ```
 allprojects {
     repositories {
@@ -29,6 +28,8 @@ allprojects {
     }
 }
 ```
+
+### Initialize
 
 ### Document
 
