@@ -103,10 +103,10 @@ new Logz.Builder()
 
 Method | Default | Values | Usage | Desc | Example
 --- | --- | --- | --- |--- |---
-setTag | "LOGZ" | String | 290 | 286 | 289
---- | --- | --- | --- |--- |---
-setTag | "LOGZ" | String | 290 | 286 | 289
-setTag | "LOGZ" | String | 290 | 286 | 289
+setTag | "LOGZ" | Every | For following logs in Logcat | More desc in Continue(Settings) | -
+setEnable | true | true/false | --- |--- |---
+setUsed | true | true/false | 290 | 286 | 289
+showInfo | true | true/false | 290 | 286 | 289
 
 ### Advanced
 - Remove extra logs
