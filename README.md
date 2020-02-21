@@ -94,7 +94,7 @@ new Logz.Builder()
       .setInfoClickable(false) // You can click on address log in logcat and transform to log writed place
       .setTimeFormat(Time.CLOCK) // NONE, STAMP, CLOCK, DATE, FULL or put your coustom format: "yyyy/MM/dd-HH:mm:ss"
       .setInfoMode(Info.CLASS, Info.METHOD, Info.LINE) // show wich info? FILE, CLASS, METHOD, LINE;
-      .useSummaryMode(Summary.NONE) // When info is long, cut every info to 20 chars, START, END, NONE
+      .useSummaryMode(Summary.START) // When info is long, cut every info to 20 chars, START, END, NONE
       .setTitleCase(Case.CAMEL_SPACE) // Difference title style and log, CAMEL, CAMEL_SPACE, NONE
       .showElapsing(true) // Show offset between logs if was above 3 secounds 
       .useViewDetection(true) // Show views shortly and with id
@@ -106,7 +106,15 @@ Method | Default | Values | Desc | Usage | Example
 setTag | "LOGZ" | Every | Change log tag | For following logs in Logcat, More desc in Continue(Settings) | -
 setEnable | true | true/false | For disable and hide logz | set false when release issue | -
 setUsed | true | true/false | For disable Logz engine and use logz options with default log | when use very much logs (monitoring) | -
-showInfo | true | true/false | 290 | 286 | 289
+showInfo | true | true/false | Fow showing time and address of log | true when you want see info of logs | -
+setInfoClickable | true/false | true/false | Fow showing time and address of log | true when you want see info of logs | -
+setTimeFormat | Time.CLOCK | true/false | Fow showing time and address of log | true when you want see info of logs | -
+setInfoMode | Info.CLASS, Info.METHOD, Info.LINE | true/false | Fow showing time and address of log | true when you want see info of logs | -
+useSummaryMode | Summary.START | true/false | Fow showing time and address of log | true when you want see info of logs | -
+setTitleCase | Case.CAMEL_SPACE | true/false | Fow showing time and address of log | true when you want see info of logs | -
+showElapsing | true | true/false | Fow showing time and address of log | true when you want see info of logs | -
+useViewDetection | true | true/false | Fow showing time and address of log | true when you want see info of logs | -
+reload | - | - | Reload log options | set after set options | -
 
 ### Advanced
 - Remove extra logs
