@@ -83,6 +83,24 @@ Logz.chart(double array);
 
 
 ### Options
+###### Write this code in first activity or Application class
+###### They are default and Optional values, for not changing you can remove line of options.
+```
+new Logz.Builder()
+      .setTag("LOGZ") // For following logs in Logcat
+      .setEnable(true) // For disabling logs on realse issue
+      .setUsed(USED) // For when you want use Logz or default log for biulding logs. (When you have very very much logs and in tip)
+      .showInfo(true) // Show info of log (time, class, method, line)
+      .setInfoClickable(false) // You can click on address log in logcat and transform to log writed place
+      .setTimeFormat(Time.CLOCK) // NONE, STAMP, CLOCK, DATE, FULL or put your coustom format: "yyyy/MM/dd-HH:mm:ss"
+      .setInfoMode(Info.CLASS, Info.METHOD, Info.LINE) // show wich info? FILE, CLASS, METHOD, LINE;
+      .useSummaryMode(Summary.NONE) // When info is long, cut every info to 20 chars, START, END, NONE
+      .setTitleCase(Case.CAMEL_SPACE) // Difference title style and log, CAMEL, CAMEL_SPACE, NONE
+      .showElapsing(true) // Show offset between logs if was above 3 secounds 
+      .useViewDetection(true) // Show views shortly and with id
+      .reload();
+```
+Table
 
 ### Advanced
 - Remove extra logs
