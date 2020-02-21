@@ -102,7 +102,7 @@ new Logz.Builder()
 ```
 
 Method | Default | Values | Desc | Usage 
----|---|---|---|---|---
+---|---|---|---|---
 setTag | "LOGZ" | Every | Change log tag | For following logs in Logcat, More desc in Continue(Settings)
 setEnable | true | true/false | For disable and hide logz | set false when release issue
 setUsed | true | true/false | For disable Logz engine and use logz options with default log | when use very much logs (monitoring)
