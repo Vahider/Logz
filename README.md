@@ -103,6 +103,7 @@ For get better expensive from logging, pass below levels and feel changes.
 For remove old logs's info and shortly too, you must be click on left settings icon in logcat, and remove all ticks.
 ###### Hide extra logs
 For show just your log, you must be create new filter in logcat. click on Filter, then click on Edit filter configuration and set name for filter and write `⌬` in Log message field.
+If you want show other logs, just select other filter example `show only selected applicatinos` or `no filters`
 ###### Use coloric text
 For better detection log, you can change log colors in android studio settings.
 go to File>Settings>Editor>ColorScheme>ConsoleColors and click on Log Console then change every log levels.
@@ -116,3 +117,26 @@ Put Alt+6 for open and close logcat
 ### Samples
 
 ### Licence
+```
+MIT License
+
+Copyright (c) 2020 Vahid
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
