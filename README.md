@@ -101,20 +101,19 @@ new Logz.Builder()
       .reload();
 ```
 
-Method | Default | Values | Desc | Usage | Example
+Method | Default | Values | Desc | Usage 
 ---|---|---|---|---|---
-setTag | "LOGZ" | Every | Change log tag | For following logs in Logcat, More desc in Continue(Settings) | -
-setEnable | true | true/false | For disable and hide logz | set false when release issue | -
-setUsed | true | true/false | For disable Logz engine and use logz options with default log | when use very much logs (monitoring) | -
-showInfo | true | true/false | Fow showing time and address of log | true when you want see info of logs | -
-setInfoClickable | true/false | true/false | Fow showing time and address of log | true when you want see info of logs | -
-setTimeFormat | Time.CLOCK | true/false | Fow showing time and address of log | true when you want see info of logs | -
-setInfoMode | Info.CLASS, Info.METHOD, Info.LINE | true/false | Fow showing time and address of log | true when you want see info of logs | -
-useSummaryMode | Summary.START | true/false | Fow showing time and address of log | true when you want see info of logs | -
-setTitleCase | Case.CAMEL_SPACE | true/false | Fow showing time and address of log | true when you want see info of logs | -
-showElapsing | true | true/false | Fow showing time and address of log | true when you want see info of logs | -
-useViewDetection | true | true/false | Fow showing time and address of log | true when you want see info of logs | -
-reload | - | - | Reload log options | set after set options | -
+setTag | "LOGZ" | Every | Change log tag | For following logs in Logcat, More desc in Continue(Settings)
+setEnable | true | true/false | For disable and hide logz | set false when release issue
+setUsed | true | true/false | For disable Logz engine and use logz options with default log | when use very much logs (monitoring)
+showInfo | true | true/false | Fow showing time and address of log | true when you want see info of logs
+setInfoClickable | true | true/false | Fow showing time and address of log | true when you want see info of logs
+setTimeFormat | Time.CLOCK | NONE, STAMP, CLOCK, DATE, FULL, "yyyy/MM/dd-HH:mm:ss" | Fow showing time and address of log | true when you want see info of logs
+setInfoMode | Info.CLASS, Info.METHOD, Info.LINE | FILE, CLASS, METHOD, LINE | Fow showing time and address of log | true when you want see info of logs
+useSummaryMode | Summary.START | START, END, NONE | Fow showing time and address of log | true when you want see info of logs
+setTitleCase | Case.CAMEL_SPACE | CAMEL, CAMEL_SPACE, NONE | Fow showing time and address of log | true when you want see info of logs
+showElapsing | true | true/false | Fow showing time and address of log | true when you want see info of logs
+useViewDetection | true | true/false | Fow showing time and address of log | true when you want see info of logs
 
 ### Advanced
 - Remove extra logs
