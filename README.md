@@ -30,8 +30,8 @@ allprojects {
 ```
 
 ### Document
-> for add `title` to every log, add string and split with `,` before everythings example: `Logz.i(title, everythings);`
-- Normal log
+> Tip: for add `title` to every log, add string and split with `,` before everythings example: `Logz.i(title, everythings);`
+###### Normal log
 ```
 Logz.v(eveythings);
 Logz.d(eveythings);
@@ -39,22 +39,22 @@ Logz.i(eveythings);
 Logz.w(eveythings);
 Logz.e(eveythings);
 ```
-- Fast log
+###### Fast log
 ```
 Logz.is(eveythings);
 ```
-- Draw line
+###### Draw line
 ```
 Logz.line(eveythings);
 ```
-- Log list content
+###### Log list content
 ```
 Logz.list(List);
 Logz.list(Array);
 Logz.list(Set);
 Logz.list(Map);
 ```
-- Log json format
+###### Log json format
 ```
 Logz.json(List);
 ```
