@@ -105,15 +105,15 @@ Method | Default | Values | Desc | Usage
 ---|---|---|---|---
 setTag | "LOGZ" | Every | Change log tag | For following logs in Logcat, More desc in Continue(Settings)
 setEnable | true | true/false | For disable and hide logz | set false when release issue
-setUsed | true | true/false | For disable Logz engine and use logz options with default log | when use very much logs (monitoring)
+setUsed | true | true/false | For disable Logz engine and use logz options with default log | when use very much logs (monitoring) and want to fastest log
 showInfo | true | true/false | Fow showing time and address of log | true when you want see info of logs
-setInfoClickable | true | true/false | Fow showing time and address of log | true when you want see info of logs
-setTimeFormat | Time.CLOCK | NONE, STAMP, CLOCK, DATE, FULL, "yyyy/MM/dd-HH:mm:ss" | Fow showing time and address of log | true when you want see info of logs
-setInfoMode | Info.CLASS, Info.METHOD, Info.LINE | FILE, CLASS, METHOD, LINE | Fow showing time and address of log | true when you want see info of logs
-useSummaryMode | Summary.START | START, END, NONE | Fow showing time and address of log | true when you want see info of logs
-setTitleCase | Case.CAMEL_SPACE | CAMEL, CAMEL_SPACE, NONE | Fow showing time and address of log | true when you want see info of logs
-showElapsing | true | true/false | Fow showing time and address of log | true when you want see info of logs
-useViewDetection | true | true/false | Fow showing time and address of log | true when you want see info of logs
+setInfoClickable | true | true/false | You can click on address log in logcat and transform to log writed place | Everytime
+setTimeFormat | Time.CLOCK | NONE, STAMP, CLOCK, DATE, FULL, "yyyy/MM/dd-HH:mm:ss" | how you will see time of info? | Everytime
+setInfoMode | Info.CLASS, Info.METHOD, Info.LINE | FILE, CLASS, METHOD, LINE | Show wich info? | Everytime
+useSummaryMode | Summary.START | START, END, NONE | Shortly item of infos | When every info longest from 20 char
+setTitleCase | Case.CAMEL_SPACE | CAMEL, CAMEL_SPACE, NONE | Difference title style and log | Everytime
+showElapsing | true | true/false | Show offset between logs if was above 3 secounds  | Everytime
+useViewDetection | true | true/false | Show views shortly and with id | Everytime
 
 ### Advanced
 - Remove extra logs
