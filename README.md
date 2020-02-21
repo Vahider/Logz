@@ -1,13 +1,28 @@
 # ⌬ 𝓛𝓸𝓰𝔃
-Simple, pretty and powerful logger for android
+Very simple, practical, attractive and powerful logger for android
+
+## Possibilities
+- Show content list(List,Array,Map,Set)
+- Draw chart
+- Open json format
+- View detection
+- Show log's address
+- Customize time
+- Safe null
+- Fast log
+- Split lounch
+- Show elapsing
+- Adapted with crashing
+- Set title for logging
 
 ## Setup
 
-## Documents
+## Document
 
 ## Options
 
 ## Advanced
+- Remove extra logs
 
 ## Settings
 
