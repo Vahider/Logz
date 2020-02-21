@@ -88,7 +88,7 @@ Logz.chart(double array);
 ```
 new Logz.Builder()
       .setTag("LOGZ") // For following logs in Logcat
-      .setEnable(true) // For disabling logs on realse issue
+      .setEnable(true) // For disabling logs
       .setUsed(USED) // For when you want use Logz or default log for biulding logs. (When you have very very much logs and in tip)
       .showInfo(true) // Show info of log (time, class, method, line)
       .setInfoClickable(false) // You can click on address log in logcat and transform to log writed place
@@ -101,11 +101,11 @@ new Logz.Builder()
       .reload();
 ```
 
-Method | Default | Values | Usage | Desc | Example
---- | --- | --- | --- |--- |---
-setTag | "LOGZ" | Every | For following logs in Logcat | More desc in Continue(Settings) | -
-setEnable | true | true/false | --- |--- |---
-setUsed | true | true/false | 290 | 286 | 289
+Method | Default | Values | Desc | Usage | Example
+---|---|---|---|---|---
+setTag | "LOGZ" | Every | Change log tag | For following logs in Logcat, More desc in Continue(Settings) | -
+setEnable | true | true/false | For disable and hide logz | set false when release issue | -
+setUsed | true | true/false | For disable Logz engine and use logz options with default log | when use very much logs (monitoring) | -
 showInfo | true | true/false | 290 | 286 | 289
 
 ### Advanced
