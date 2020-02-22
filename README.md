@@ -16,6 +16,10 @@ Very simple, practical, attractive and powerful logger for android
 - Set title for logging
 
 ### Comparison
+![Alt text](https://user-images.githubusercontent.com/51606884/75083512-6a63bf80-552e-11ea-9cb4-006a42382a36.png)
+![Alt text](https://user-images.githubusercontent.com/51606884/75083516-6c2d8300-552e-11ea-9d4f-458aeff2fa10.png)
+![Alt text](https://user-images.githubusercontent.com/51606884/75083513-6a63bf80-552e-11ea-9135-5117bc0a11bb.png)
+![Alt text](https://user-images.githubusercontent.com/51606884/75083518-6c2d8300-552e-11ea-9dc4-206d92ad2632.png)
 
 ### Setup
 ###### in `biuld.gradle (Module app)`
@@ -103,12 +107,15 @@ useViewDetection | true | `true` `false` | Show views shortly and with id | Ever
 For get better expensive from logging, pass below levels and feel changes.
 ###### Hide old info
 For remove old logs's info and shortly too, you must be click on left settings icon in logcat, and remove all ticks.
+![Alt text](https://user-images.githubusercontent.com/51606884/75083508-6899fc00-552e-11ea-8708-32e6e972d120.png)
 ###### Hide extra logs
 For show just your log, you must be create new filter in logcat. click on Filter, then click on Edit filter configuration and set name for filter and write `⌬` in Log message field.
 If you want show other logs, just select other filter example `show only selected applicatinos` or `no filters`
+![Alt text](https://user-images.githubusercontent.com/51606884/75083511-69cb2900-552e-11ea-8722-f05ac4119f2f.png)
 ###### Use coloric text
 For better detection log, you can change log colors in android studio settings.
 go to File>Settings>Editor>ColorScheme>ConsoleColors and click on Log Console then change every log levels.
+![Alt text](https://user-images.githubusercontent.com/51606884/75083515-6b94ec80-552e-11ea-95fb-4d14186cecf3.png)
 ###### Use same width font
 For better expencive, use font that same of characters width.
 go to File>Settings>Editor>ColorScheme>ConsoleFont and use same width font example `Consolas`
