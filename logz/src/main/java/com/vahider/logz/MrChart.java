@@ -40,13 +40,6 @@ class MrChart {
           String spaceOffsetX = fillSpace(' ', offsetX - 1, 0);
           for (double yPoint : yPoints) {
             boolean showed = false;
-//        float whichLog = yPoint / valueOffsetY;
-//        for (int line = countLineY - 1; line >= 0; line--) {
-//          if (yPoint == line + 1)
-//            listLineY[line].append(spaceOffsetX).append("┃");
-//          else
-//            listLineY[line].append(spaceOffsetX).append(" ");
-//        }
             for (int line = countLineY - 1; line >= 0; line--) {
               if (yPoint == line + 1) {
                 listLineY[line].append(spaceOffsetX).append("┃");
@@ -80,75 +73,6 @@ class MrChart {
       }
     }
   }
-
-//  static void chart(int... yPoints) {
-//    MrLog.show(Arrays.toString(yPoints), 1);
-//
-//    if (yPoints.length > 0) {
-//      final int pointCount = yPoints.length;
-//      final int minXLine = 50;
-//      final int minYLine = 4;
-//      final int maxYLine = 15;
-//
-//      int offsetX;
-//      if (pointCount < minXLine)
-//        offsetX = minXLine / pointCount;
-//      else
-//        offsetX = 1;
-//
-//      int lengthMaxY = 0;
-//      for (int yPoint : yPoints) if (yPoint > lengthMaxY) lengthMaxY = yPoint;
-//      int countLineY;
-//      int valueOffsetY;
-//      if (lengthMaxY < minYLine) {
-//        countLineY = minYLine;
-//        valueOffsetY = lengthMaxY / minYLine;
-//      } else if (lengthMaxY > maxYLine) {
-//        countLineY = maxYLine;
-//        valueOffsetY = lengthMaxY / maxYLine;
-//      } else {
-//        countLineY = lengthMaxY;
-//        valueOffsetY = 1;
-//      }
-//
-//      StringBuilder[] listLineY = new StringBuilder[countLineY];
-//      for (int line = 0; line < countLineY; line++) {
-//        listLineY[line] = new StringBuilder();
-//      }
-//
-//      String spaceOffsetX = fillSpace(' ', offsetX - 1, 0);
-//      for (int yPoint : yPoints) {
-//        boolean showed = false;
-//        int whichLog = yPoint / valueOffsetY;
-//        for (int line = countLineY - 1; line >= 0; line--) {
-//          if (whichLog == line + 1) {
-//            listLineY[line].append(fillSpace(' ', offsetX - 1, 0)).append("☉");
-//            showed = true;
-//          } else {
-//            if (showed)
-//              listLineY[line].append(spaceOffsetX).append("┃");
-//            else
-//              listLineY[line].append(spaceOffsetX).append(" ");
-//          }
-//        }
-//      }
-//
-//      String spaceMaxY = fillSpace('━', (lengthMaxY + "   ").length(), 0);
-//      StringBuilder lineBox = new StringBuilder();
-//      for (int x = 0; x < listLineY[0].length(); x += offsetX) {
-//        lineBox.append(fillSpace('━', offsetX - 1, 0)).append("━");
-//      }
-//
-//      MrLog.show("┏" + spaceMaxY + lineBox.toString() + "━┑", 1);
-//
-//      for (int line = countLineY - 1; line >= 0; line--) {
-//        int titleValue = ((line + 1) * valueOffsetY);
-//        MrLog.show("┣ " + titleValue + fillSpace(' ', (lengthMaxY + "  ").length(), String.valueOf(titleValue).length()) + listLineY[line].toString(), 1);
-//      }
-//
-//      MrLog.show("┗" + spaceMaxY + lineBox.toString() + "━┙", 1);
-//    }
-//  }
 
   private static String fillSpace(char repeat, int max, int length) {
     char[] chars = new char[max - length];

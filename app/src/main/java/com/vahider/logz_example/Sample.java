@@ -2,6 +2,7 @@ package com.vahider.logz_example;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -36,13 +37,75 @@ public class Sample extends AppCompatActivity {
       .setInfoClickable(false)
       .setTimeFormat(Time.CLOCK)
       .setInfoMode(Info.CLASS, Info.METHOD, Info.LINE)
-      .useSummaryMode(Summary.NONE)
+      .useSummaryMode(Summary.START)
       .setTitleCase(Case.CAMEL_SPACE)
       .showElapsing(true)
       .useViewDetection(true)
       .reload();
 
     runExamples();
+//    githubCompare();
+
+  }
+
+  private void githubCompare() {
+    Logz.line();
+    Logz.v("V is Gray", "Low level Log");
+    Logz.d("D is Yellow", "Clear log");
+    Logz.i("I is Indigo", "Normal info Log");
+    Logz.w("W is Orange", "Warning Log");
+    Logz.e("E is Red", "Danger Log");
+    Logz.line();
+
+    ///////////////////////////////////////////////////////
+
+    List list = new ArrayList();
+    list.add(1);
+    list.add("a");
+    list.add(true);
+    list.add(null);
+    list.add(new EditText(this));
+    String json = "{\"name\":\"Ram\", \"email\":\"Ram@gmail.com\"}";
+    double[] doubleArray = new double[]{8, 4, 6, 9, 1, 0, -3, 6, -1, 7, 8, -4, 6, 2, 1, 0, -3, 6, -1, 7, 8, 4, 6, -1, -5};
+    TextView mTvHomeLogo = findViewById(R.id.tv_home_logo);
+
+    Logz.line("logz  examples");
+
+    Logz.i("title", "with title");
+
+    Logz.v("Without title");
+    Logz.d(12345);
+    Logz.i(true);
+    Logz.w(null);
+    Logz.e(mTvHomeLogo);
+
+    Logz.is("fast and clear");
+
+    Logz.list(list); // List
+    Logz.json(json); // String
+    Logz.chart(doubleArray); // double[]
+
+    Logz.line();
+
+    ////////////////////////////////
+
+    Log.i("TAG", "-------------Default log example-----------");
+
+    Log.v("TAG", "String: " + "with title");
+
+    Log.v("TAG", "Without title");
+    Log.d("TAG", "" + 12345);
+    Log.i("TAG", "" + true);
+    // Log.w("TAG", null); // crashed
+    Log.e("TAG", "" + mTvHomeLogo);
+
+    Log.d("TAG", "************ not fast maybe clear");
+
+    Log.d("TAG", "" + list);
+    Log.d("TAG", json);
+    Log.d("TAG", "" + doubleArray);
+
+    Log.i("TAG", "--------------------------------");
   }
 
   private void runExamples() {
@@ -125,7 +188,7 @@ public class Sample extends AppCompatActivity {
     new Handler().postDelayed(new Runnable() {
       @Override
       public void run() {
-//         throw null; // in main thread
+         throw null; // in main thread
       }
     }, 4000);
 //    throw null;

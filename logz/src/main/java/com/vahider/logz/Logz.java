@@ -12,6 +12,7 @@ import com.vahider.logz.enums.Time;
 public class Logz {
 
   static final String ENTER = "\n                         ";
+  private static boolean isInitilize = false;
 
   static final String LOGZ = "LOGZ";
   static String tag = LOGZ;
@@ -49,22 +50,24 @@ public class Logz {
     elapsing = builder.elapsing;
     titleCase = builder.titleCase;
     viewDetection = builder.viewDetection;
-
-    Thread.setDefaultUncaughtExceptionHandler(new MrCrash());
-
-    if (enable) {
-      v("────────────────────────────────────────────────────────────────────────────────");
-      v("───────────────────────────── NEW LAUNCH WITH LOGZ ─────────────────────────────");
-      v("────────────────────────────────────────────────────────────────────────────────");
-    } else if (!enable) {
-      Log.e(tag, "──────────────────────────────── LOGZ IS DISABLE ───────────────────────────────");
-    } else if (!used) {
-      Log.w(tag, "─────────────────────────────── LOGZ WAS NOT USED ──────────────────────────────");
-    }
   }
 
-  public static String getTag() {
-    return tag;
+  private static void firstInit() {
+    if (!isInitilize) {
+      Thread.setDefaultUncaughtExceptionHandler(new MrCrash());
+
+      if (enable) {
+        Log.v(tag, MrLog.log("", "────────────────────────────────────────────────────────────────────────────────", 0));
+        Log.v(tag, MrLog.log("", "───────────────────────────── NEW LAUNCH WITH LOGZ ─────────────────────────────", 0));
+        Log.v(tag, MrLog.log("", "────────────────────────────────────────────────────────────────────────────────", 0));
+      } else if (!enable) {
+        Log.e(tag, "──────────────────────────────── LOGZ IS DISABLE ───────────────────────────────");
+      } else if (!used) {
+        Log.w(tag, "─────────────────────────────── LOGZ WAS NOT USED ──────────────────────────────");
+      }
+
+      isInitilize = true;
+    }
   }
 
   static Object safeDetection(Object object) { // view and null
@@ -80,79 +83,102 @@ public class Logz {
     return object;
   }
 
+
+  public static String getTag() {
+    return tag;
+  }
+
   // Logz
   public static void is(Object log) {
+    firstInit();
     MrLog.is(safeDetection(log));
   }
 
   public static void v(Object title, Object log) {
+    firstInit();
     MrLog.v(safeDetection(title), safeDetection(log));
   }
 
   public static void d(Object title, Object log) {
+    firstInit();
     MrLog.d(safeDetection(title), safeDetection(log));
   }
 
   public static void i(Object title, Object log) {
+    firstInit();
     MrLog.i(safeDetection(title), safeDetection(log));
   }
 
   public static void w(Object title, Object log) {
+    firstInit();
     MrLog.w(safeDetection(title), safeDetection(log));
   }
 
   public static void e(Object title, Object log) {
+    firstInit();
     MrLog.e(safeDetection(title), safeDetection(log));
   }
 
   public static void v(Object log) {
+    firstInit();
     MrLog.v(safeDetection(log));
   }
 
   public static void d(Object log) {
+    firstInit();
     MrLog.d(safeDetection(log));
   }
 
   public static void i(Object log) {
+    firstInit();
     MrLog.i(safeDetection(log));
   }
 
   public static void w(Object log) {
+    firstInit();
     MrLog.w(safeDetection(log));
   }
 
   public static void e(Object log) {
+    firstInit();
     MrLog.e(safeDetection(log));
   }
 
   public static void line(Object title) { // 50 character
+    firstInit();
     MrLog.line(safeDetection(title));
   }
 
   public static void line() {
+    firstInit();
     MrLog.line();
   }
 
   // List
   public static void list(Object logList) {
+    firstInit();
     MrList.list("", safeDetection(logList));
   }
 
   public static void list(Object title, Object logList) {
+    firstInit();
     MrList.list(safeDetection(title).toString(), safeDetection(logList));
   }
 
   // Json
   public static void json(Object logJson) {
+    firstInit();
     MrJson.json("", safeDetection(logJson));
   }
 
   public static void json(Object title, Object logJson) {
+    firstInit();
     MrJson.json(safeDetection(title), safeDetection(logJson));
   }
 
   // Chart
   public static void chart(double... yPoints) {
+    firstInit();
     MrChart.chart(yPoints);
   }
 
@@ -165,7 +191,7 @@ public class Logz {
     private String tag;
     private boolean enable;
     private boolean used;
-    private String timeFormat; // stamp yyyy/MM/dd-HH:mm:ss
+    private String timeFormat;
     private boolean info;
     private boolean infoClickable;
     private Info[] infoMode;

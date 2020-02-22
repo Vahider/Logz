@@ -13,12 +13,6 @@ class MrJson {
 
   private static StringBuilder result;
 
-//  static void json(Object logList) {
-//    if (Logz.enable){
-//      result = new StringBuilder();
-//      draw(Logz.safeDetection(logList));}
-//  }
-
   static void json(Object title, Object logList) {
     if (Logz.enable) {
       result = new StringBuilder(MrLog.setTitleStyle(title.toString()));
@@ -54,19 +48,6 @@ class MrJson {
         // e.printStackTrace();
       }
     }
-  }
-
-  private static String getJsonOffset(int space) {
-    char[] chars = new char[space * 4];
-    Arrays.fill(chars, ' ');
-    return new String(chars);
-  }
-
-  private static String detectJsonClass(Object json) {
-    if (json instanceof String) {
-      return "\"" + json + "\"";
-    } else
-      return json.toString();
   }
 
   private static void iJson(String json) {
@@ -122,4 +103,16 @@ class MrJson {
     }
   }
 
+  private static String getJsonOffset(int space) {
+    char[] chars = new char[space * 4];
+    Arrays.fill(chars, ' ');
+    return new String(chars);
+  }
+
+  private static String detectJsonClass(Object json) {
+    if (json instanceof String) {
+      return "\"" + json + "\"";
+    } else
+      return json.toString();
+  }
 }
