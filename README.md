@@ -15,6 +15,8 @@ Very simple, practical, attractive and powerful logger for android
 - Adapted with crashing
 - Set title for logging
 
+### Comparison
+
 ### Setup
 ###### in `biuld.gradle (Module app)`
 ```
@@ -112,9 +114,6 @@ For better expencive, use font that same of characters width.
 go to File>Settings>Editor>ColorScheme>ConsoleFont and use same width font example `Consolas`
 ###### Open logcat fastest
 Put Alt+6 for open and close logcat
-###### Change Color
-
-### Samples
 
 ### Licence
 ```
