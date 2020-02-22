@@ -16,9 +16,13 @@ Very simple, practical, attractive and powerful logger for android
 - Set title for logging
 
 ### Comparison
+###### Write log with default log
 ![Alt text](https://user-images.githubusercontent.com/51606884/75083512-6a63bf80-552e-11ea-9cb4-006a42382a36.png)
+###### Write log with **Logz**
 ![Alt text](https://user-images.githubusercontent.com/51606884/75083516-6c2d8300-552e-11ea-9d4f-458aeff2fa10.png)
+###### Result of default log
 ![Alt text](https://user-images.githubusercontent.com/51606884/75083513-6a63bf80-552e-11ea-9135-5117bc0a11bb.png)
+###### Result of **Logz**
 ![Alt text](https://user-images.githubusercontent.com/51606884/75083518-6c2d8300-552e-11ea-9dc4-206d92ad2632.png)
 
 ### Setup
