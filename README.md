@@ -14,6 +14,7 @@ Very simple, practical, attractive and powerful logger for android
 - Show elapsing
 - Adapted with crashing
 - Set title for logging
+- every arguamnt for logging
 
 ### Comparison
 ###### Write log with default log
