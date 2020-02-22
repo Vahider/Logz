@@ -18,7 +18,7 @@ Very simple, practical, attractive and powerful logger for android
 ### Setup
 ###### in `biuld.gradle (Module app)`
 ```
-implementation 'com.github.Vahider:Logz:0.1.0'
+implementation 'com.github.Vahider:Logz:1.0.0'
 ```
 ###### in `biuld.gradle (project)`
 ```
@@ -30,7 +30,7 @@ allprojects {
 ```
 
 ### Document
-> **Tip**: for add *title* to every log, add String and split with `,` before everythings example: `Logz.i(title, everythings);`
+> **Tip**: `Title` is optional item and diffrente text style for every log. For add *title* to log, add a Object before `everythings`. Example: `Logz.i(title, everythings);`
 ###### Normal log
 ```
 Logz.v(eveythings);
