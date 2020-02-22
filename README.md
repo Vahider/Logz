@@ -29,7 +29,7 @@ Very simple, practical, attractive and powerful logger for android
 ### Setup
 ###### in `biuld.gradle (Module app)`
 ```
-implementation 'com.github.Vahider:Logz:1.0.0'
+implementation 'com.github.vahider:logz:1.4.0'
 ```
 ###### in `biuld.gradle (project)`
 ```
