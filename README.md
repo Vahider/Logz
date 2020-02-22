@@ -13,7 +13,7 @@ Very simple, practical, attractive and powerful logger for android
 - Split lounch
 - Show elapsing
 - Adapted with crashing
-- Set title for logging
+- Set title for logs
 - every arguamnt for logging
 
 ### Comparison
