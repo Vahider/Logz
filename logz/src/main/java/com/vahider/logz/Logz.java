@@ -14,21 +14,20 @@ public class Logz {
   static final String ENTER = "\n                         ";
   private static boolean isInitilize = false;
 
-  static final String LOGZ = "LOGZ";
-  static String tag = LOGZ;
-  static boolean enable = true; // used in debugging mode
-  static boolean used = true;
-  static String timeFormat = Time.CLOCK.getFormat();
-  static boolean showInfo = true;
-  static boolean infoClicable = false;
-  static boolean showInfoFile = false;
-  static boolean showInfoClass = true;
-  static boolean showInfoMethod = true;
-  static boolean showInfoLine = true;
-  static Summary summary = Summary.START;
-  static boolean elapsing = true;
-  static Case titleCase = Case.CAMEL;
-  static boolean viewDetection = true;
+  static String tag ;
+  static boolean enable ; // used in debugging mode
+  static boolean used ;
+  static String timeFormat ;
+  static boolean showInfo ;
+  static boolean infoClicable ;
+  static boolean showInfoFile ;
+  static boolean showInfoClass ;
+  static boolean showInfoMethod ;
+  static boolean showInfoLine;
+  static Summary summary ;
+  static boolean elapsing ;
+  static Case titleCase ;
+  static boolean viewDetection ;
 
   private Logz(final Builder builder) {
     tag = builder.tag;
@@ -50,6 +49,8 @@ public class Logz {
     elapsing = builder.elapsing;
     titleCase = builder.titleCase;
     viewDetection = builder.viewDetection;
+
+    firstInit();
   }
 
   private static void firstInit() {
@@ -57,9 +58,9 @@ public class Logz {
       Thread.setDefaultUncaughtExceptionHandler(new MrCrash());
 
       if (enable) {
-        Log.v(tag, MrLog.log("", "────────────────────────────────────────────────────────────────────────────────", 0));
-        Log.v(tag, MrLog.log("", "───────────────────────────── NEW LAUNCH WITH LOGZ ─────────────────────────────", 0));
-        Log.v(tag, MrLog.log("", "────────────────────────────────────────────────────────────────────────────────", 0));
+        Log.v(tag, /*MrLog.log("",*/ "⌬ ──────────────────────────────────────────────────────────────────────────────────────────"/*, 0)*/);
+        Log.v(tag, /*MrLog.log("",*/ "⌬ ────────────────────────────────── NEW LAUNCH WITH LOGZ ──────────────────────────────────"/*, 0)*/);
+        Log.v(tag, /*MrLog.log("",*/ "⌬ ──────────────────────────────────────────────────────────────────────────────────────────"/*, 0)*/);
       } else if (!enable) {
         Log.e(tag, "──────────────────────────────── LOGZ IS DISABLE ───────────────────────────────");
       } else if (!used) {
@@ -188,17 +189,17 @@ public class Logz {
   // region Biulder
   public static class Builder {
 
-    private String tag;
-    private boolean enable;
-    private boolean used;
-    private String timeFormat;
-    private boolean info;
-    private boolean infoClickable;
-    private Info[] infoMode;
-    private Summary summary;
-    private boolean elapsing;
-    private Case titleCase;
-    private boolean viewDetection;
+    private String tag = "LOGZ";
+    private boolean enable = true;
+    private boolean used = true;
+    private String timeFormat = Time.CLOCK.getFormat();
+    private boolean info = true;
+    private boolean infoClickable = false;
+    private Info[] infoMode = new Info[]{Info.CLASS, Info.METHOD, Info.LINE};
+    private Summary summary = Summary.START;
+    private boolean elapsing = true;
+    private Case titleCase = Case.CAMEL_SPACE;
+    private boolean viewDetection = true;
 
     public Builder setTag(final String tag) {
       this.tag = tag;
