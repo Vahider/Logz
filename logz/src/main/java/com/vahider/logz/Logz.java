@@ -1,33 +1,33 @@
 package com.vahider.logz;
 
-
 import android.util.Log;
-import android.view.View;
 
 import com.vahider.logz.enums.Case;
 import com.vahider.logz.enums.Info;
 import com.vahider.logz.enums.Summary;
-import com.vahider.logz.enums.Time;
+import com.vahider.logz.enums.TimeMode;
+
+import java.util.List;
 
 public class Logz {
 
   static final String ENTER = "\n                         ";
   private static boolean isInitilize = false;
 
-  static String tag ;
-  static boolean enable ; // used in debugging mode
-  static boolean used ;
-  static String timeFormat ;
-  static boolean showInfo ;
-  static boolean infoClicable ;
-  static boolean showInfoFile ;
-  static boolean showInfoClass ;
-  static boolean showInfoMethod ;
+  static String tag;
+  static boolean enable; // used in debugging mode
+  static boolean used;
+  static String timeFormat;
+  static boolean showInfo;
+  static boolean infoClicable;
+  static boolean showInfoFile;
+  static boolean showInfoClass;
+  static boolean showInfoMethod;
   static boolean showInfoLine;
-  static Summary summary ;
-  static boolean elapsing ;
-  static Case titleCase ;
-  static boolean viewDetection ;
+  static Summary summary;
+  static boolean elapsing;
+  static Case titleCase;
+  static boolean viewDetection;
 
   private Logz(final Builder builder) {
     tag = builder.tag;
@@ -71,83 +71,74 @@ public class Logz {
     }
   }
 
-  static Object safeDetection(Object object) { // view and null
-    if (object == null)
-      return "null";
-    if (viewDetection && object instanceof View) {
-      View view = (View) object;
-      String id = "-";
-      if (view.getId() != View.NO_ID)
-        id = view.getContext().getResources().getResourceEntryName(view.getId());
-      return view.getClass().getSimpleName() + "(" + id + ")";
-    }
-    return object;
-  }
-
-
   public static String getTag() {
     return tag;
   }
 
   // Logz
-  public static void is(Object log) {
+  public static void is(Object msg) {
     firstInit();
-    MrLog.is(safeDetection(log));
+    MrLog.is(Util.safeDetection(msg));
   }
 
-  public static void v(Object title, Object log) {
+  public static void is(Object title, Object msg) {
     firstInit();
-    MrLog.v(safeDetection(title), safeDetection(log));
+    MrLog.is(Util.safeDetection(title), Util.safeDetection(msg));
   }
 
-  public static void d(Object title, Object log) {
+  public static void v(Object title, Object msg) {
     firstInit();
-    MrLog.d(safeDetection(title), safeDetection(log));
+    MrLog.v(Util.safeDetection(title), Util.safeDetection(msg));
   }
 
-  public static void i(Object title, Object log) {
+  public static void d(Object title, Object msg) {
     firstInit();
-    MrLog.i(safeDetection(title), safeDetection(log));
+    MrLog.d(Util.safeDetection(title), Util.safeDetection(msg));
   }
 
-  public static void w(Object title, Object log) {
+  public static void i(Object title, Object msg) {
     firstInit();
-    MrLog.w(safeDetection(title), safeDetection(log));
+    MrLog.i(Util.safeDetection(title), Util.safeDetection(msg));
   }
 
-  public static void e(Object title, Object log) {
+  public static void w(Object title, Object msg) {
     firstInit();
-    MrLog.e(safeDetection(title), safeDetection(log));
+    MrLog.w(Util.safeDetection(title), Util.safeDetection(msg));
   }
 
-  public static void v(Object log) {
+  public static void e(Object title, Object msg) {
     firstInit();
-    MrLog.v(safeDetection(log));
+    MrLog.e(Util.safeDetection(title), Util.safeDetection(msg));
   }
 
-  public static void d(Object log) {
+  public static void v(Object msg) {
     firstInit();
-    MrLog.d(safeDetection(log));
+    MrLog.v(Util.safeDetection(msg));
   }
 
-  public static void i(Object log) {
+  public static void d(Object msg) {
     firstInit();
-    MrLog.i(safeDetection(log));
+    MrLog.d(Util.safeDetection(msg));
   }
 
-  public static void w(Object log) {
+  public static void i(Object msg) {
     firstInit();
-    MrLog.w(safeDetection(log));
+    MrLog.i(Util.safeDetection(msg));
   }
 
-  public static void e(Object log) {
+  public static void w(Object msg) {
     firstInit();
-    MrLog.e(safeDetection(log));
+    MrLog.w(Util.safeDetection(msg));
+  }
+
+  public static void e(Object msg) {
+    firstInit();
+    MrLog.e(Util.safeDetection(msg));
   }
 
   public static void line(Object title) { // 50 character
     firstInit();
-    MrLog.line(safeDetection(title));
+    MrLog.line(Util.safeDetection(title));
   }
 
   public static void line() {
@@ -158,23 +149,23 @@ public class Logz {
   // List
   public static void list(Object logList) {
     firstInit();
-    MrList.list("", safeDetection(logList));
+    MrList.list("", Util.safeDetection(logList));
   }
 
   public static void list(Object title, Object logList) {
     firstInit();
-    MrList.list(safeDetection(title).toString(), safeDetection(logList));
+    MrList.list(Util.safeDetection(title).toString(), Util.safeDetection(logList));
   }
 
   // Json
   public static void json(Object logJson) {
     firstInit();
-    MrJson.json("", safeDetection(logJson));
+    MrJson.json("", Util.safeDetection(logJson));
   }
 
   public static void json(Object title, Object logJson) {
     firstInit();
-    MrJson.json(safeDetection(title), safeDetection(logJson));
+    MrJson.json(Util.safeDetection(title), Util.safeDetection(logJson));
   }
 
   // Chart
@@ -184,6 +175,10 @@ public class Logz {
   }
 
   // Table
+  public static void table(List rowModel, String... columnMethods) {
+    firstInit();
+    MrTable.table(rowModel, columnMethods);
+  }
 
 
   // region Biulder
@@ -192,7 +187,7 @@ public class Logz {
     private String tag = "LOGZ";
     private boolean enable = true;
     private boolean used = true;
-    private String timeFormat = Time.CLOCK.getFormat();
+    private String timeFormat = TimeMode.CLOCK.getFormat();
     private boolean info = true;
     private boolean infoClickable = false;
     private Info[] infoMode = new Info[]{Info.CLASS, Info.METHOD, Info.LINE};
@@ -221,7 +216,7 @@ public class Logz {
       return this;
     }
 
-    public Builder setTimeFormat(final Time timeFormat) {
+    public Builder setTimeFormat(final TimeMode timeFormat) {
       this.timeFormat = timeFormat.getFormat();
       return this;
     }

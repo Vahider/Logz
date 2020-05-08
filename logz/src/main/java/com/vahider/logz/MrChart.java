@@ -9,7 +9,7 @@ class MrChart {
   static void chart(double... yPoints) {
     if (Logz.enable) {
       if (yPoints != null) {
-        StringBuilder result = new StringBuilder(MrLog.setTitleStyle(Arrays.toString(yPoints)));
+        StringBuilder result = new StringBuilder(Util.setTitleStyle(Arrays.toString(yPoints)));
 
         if (yPoints.length > 0) {
           final int pointCount = yPoints.length;
@@ -37,7 +37,7 @@ class MrChart {
             listLineY[line] = new StringBuilder();
           }
 
-          String spaceOffsetX = fillSpace(' ', offsetX - 1, 0);
+          String spaceOffsetX = Util.fillSpace(' ', offsetX - 1);
           for (double yPoint : yPoints) {
             boolean showed = false;
             for (int line = countLineY - 1; line >= 0; line--) {
@@ -53,15 +53,15 @@ class MrChart {
             }
           }
 
-          String spaceNumbers = fillSpace('━', maxLengthY, 0);
-          String lineBox = fillSpace('━', pointCount * offsetX - 1, 0);
+          String spaceNumbers = Util.fillSpace('━', maxLengthY);
+          String lineBox = Util.fillSpace('━', pointCount * offsetX - 1);
 
           result.append(Logz.ENTER).append("┏").append(spaceNumbers).append(lineBox).append("━━━┑");
 
           int decimalCount = getDecimalCount(minValueY);
           for (int line = countLineY - 1; line >= 0; line--) {
             double titleValue = tinyDecimal(minValueY + ((offsetMaxMinY / (countLineY - 1)) * line), decimalCount);
-            result.append(Logz.ENTER).append("┣ ").append(titleValue).append(fillSpace(' ', maxLengthY, String.valueOf(titleValue).length())).append(listLineY[line].toString());
+            result.append(Logz.ENTER).append("┣ ").append(titleValue).append(Util.fillSpace(' ', maxLengthY- String.valueOf(titleValue).length())).append(listLineY[line].toString());
           }
 
           result.append(Logz.ENTER).append("┗").append(spaceNumbers).append(lineBox).append("━━━┙");
@@ -72,12 +72,6 @@ class MrChart {
         MrLog.error("Chart points are", "null", 1);
       }
     }
-  }
-
-  private static String fillSpace(char repeat, int max, int length) {
-    char[] chars = new char[max - length];
-    Arrays.fill(chars, repeat);
-    return new String(chars);
   }
 
   private static int getDecimalCount(double number) {

@@ -10,7 +10,7 @@ import com.vahider.logz.Logz;
 import com.vahider.logz.enums.Case;
 import com.vahider.logz.enums.Info;
 import com.vahider.logz.enums.Summary;
-import com.vahider.logz.enums.Time;
+import com.vahider.logz.enums.TimeMode;
 
 import org.json.JSONArray;
 
@@ -34,8 +34,8 @@ public class Sample extends AppCompatActivity {
       .setEnable(true)
       .setUsed(USED)
       .showInfo(true)
-      .setInfoClickable(false)
-      .setTimeFormat(Time.CLOCK)
+      .setInfoClickable(true)
+      .setTimeFormat(TimeMode.CLOCK)
       .setInfoMode(Info.CLASS, Info.METHOD, Info.LINE)
       .useSummaryMode(Summary.START)
       .setTitleCase(Case.CAMEL_SPACE)
@@ -43,12 +43,52 @@ public class Sample extends AppCompatActivity {
       .useViewDetection(true)
       .reload();
 
-    runExamples();
+//    runExamples();
 //    githubCompare();
 
+    List<User> rows = new ArrayList<>();
+    User u = new User();
+    u.setId(0);
+    u.setName("Victor");
+    u.setEmail("Victor@gmail.com");
+    u.setRegister(true);
+    rows.add(u);
+    User u1 = new User();
+    u1.setId(1);
+    u1.setName("Adams");
+    u1.setEmail("Adams@gmail.com");
+    u1.setRegister(false);
+    rows.add(u1);
+    User u2 = new User();
+    u2.setId(2);
+    u2.setName("David");
+    u2.setEmail("David@gmail.com");
+    u2.setRegister(true);
+    rows.add(u2);
+    User u3 = new User();
+    u3.setId(4);
+    u3.setName("Jones");
+    u3.setEmail("Jones@gmail.com");
+    u3.setRegister(false);
+    rows.add(u3);
+    User u4 = new User();
+    u4.setId(5);
+    u4.setName("Zafar");
+    u4.setEmail("Zafar@gmail.com");
+    u4.setRegister(false);
+    rows.add(u4);
+    User u5 = new User();
+    u5.setId(6);
+    u5.setName("Lopez");
+    u5.setEmail("Lopez@gmail.com");
+    u5.setRegister(true);
+    rows.add(u5);
+//    data.add(null);
+    Logz.table(rows,/*null,*/"getId", "getName", "getEmail", "isRegister");
   }
 
   private void githubCompare() {
+
     Logz.line();
     Logz.v("V is Gray", "Low level Log");
     Logz.d("D is Yellow", "Clear log");
@@ -188,7 +228,7 @@ public class Sample extends AppCompatActivity {
     new Handler().postDelayed(new Runnable() {
       @Override
       public void run() {
-         throw null; // in main thread
+        throw null; // in main thread
       }
     }, 4000);
 //    throw null;

@@ -15,7 +15,7 @@ class MrJson {
 
   static void json(Object title, Object logList) {
     if (Logz.enable) {
-      result = new StringBuilder(MrLog.setTitleStyle(title.toString()));
+      result = new StringBuilder(Util.setTitleStyle(title.toString()));
       draw(logList);
     }
   }

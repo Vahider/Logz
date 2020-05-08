@@ -15,7 +15,7 @@ class MrList {
 
   static void list(String title, Object logList) {
     if (Logz.enable) {
-      result = new StringBuilder(MrLog.setTitleStyle(title));
+      result = new StringBuilder(Util.setTitleStyle(title));
 
       // Array
       if (logList.getClass().isArray())
@@ -47,7 +47,7 @@ class MrList {
       View[] views = ((View[]) logList);
       result.append("[");
       for (View view : views) {
-        result.append(Logz.safeDetection(view).toString());
+        result.append(Util.safeDetection(view).toString());
         if (view != views[views.length - 1])
           result.append(", ");
       }
@@ -63,7 +63,7 @@ class MrList {
     Iterator it = map.entrySet().iterator();
     while (it.hasNext()) {
       Map.Entry pair = (Map.Entry) it.next();
-      result.append(Logz.safeDetection(pair.getKey())).append(":").append(Logz.safeDetection(pair.getValue()));
+      result.append(Util.safeDetection(pair.getKey())).append(":").append(Util.safeDetection(pair.getValue()));
       if (it.hasNext())
         result.append(", ");
       it.remove(); // avoids a ConcurrentModificationException
@@ -80,7 +80,7 @@ class MrList {
     List list = ((List) logList);
     result.append("[");
     for (Object object : list) {
-      result.append(Logz.safeDetection(object).toString());
+      result.append(Util.safeDetection(object).toString());
       if (object != list.get(list.size() - 1))
         result.append(", ");
     }
