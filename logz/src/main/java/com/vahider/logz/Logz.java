@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Logz {
 
-  static final String ENTER = "\n                         ";
+  public static final String ENTER = "\n                         ";
   private static boolean isInitilize = false;
 
   static String tag;

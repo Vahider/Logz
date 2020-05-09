@@ -51,7 +51,7 @@ class MrJson {
   }
 
   private static void iJson(String json) {
-    result.append(Logz.ENTER).append("│").append(json);
+    result.append(Logz.ENTER).append("𝘭┃").append(json);
   }
 
   private static void readJsonObject(JSONObject jsonObject, int level) throws JSONException {

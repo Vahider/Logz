@@ -162,12 +162,14 @@ class MrLog {
   }
 
   private static String summaryText(String text) {
-    int len = text.length();
-    if (len > 20) {
-      if (Logz.summary == Summary.START) {
-        return "‥" + text.substring(len - 20);
-      } else if (Logz.summary == Summary.END) {
-        return text.substring(0, 20) + "‥";
+    if (text != null) {
+      int len = text.length();
+      if (len > 20) {
+        if (Logz.summary == Summary.START) {
+          return "‥" + text.substring(len - 20);
+        } else if (Logz.summary == Summary.END) {
+          return text.substring(0, 20) + "‥";
+        }
       }
     }
     return text;

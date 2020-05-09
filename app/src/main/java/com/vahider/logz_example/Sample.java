@@ -43,48 +43,8 @@ public class Sample extends AppCompatActivity {
       .useViewDetection(true)
       .reload();
 
-//    runExamples();
+    runExamples();
 //    githubCompare();
-
-    List<User> rows = new ArrayList<>();
-    User u = new User();
-    u.setId(0);
-    u.setName("Victor");
-    u.setEmail("Victor@gmail.com");
-    u.setRegister(true);
-    rows.add(u);
-    User u1 = new User();
-    u1.setId(1);
-    u1.setName("Adams");
-    u1.setEmail("Adams@gmail.com");
-    u1.setRegister(false);
-    rows.add(u1);
-    User u2 = new User();
-    u2.setId(2);
-    u2.setName("David");
-    u2.setEmail("David@gmail.com");
-    u2.setRegister(true);
-    rows.add(u2);
-    User u3 = new User();
-    u3.setId(4);
-    u3.setName("Jones");
-    u3.setEmail("Jones@gmail.com");
-    u3.setRegister(false);
-    rows.add(u3);
-    User u4 = new User();
-    u4.setId(5);
-    u4.setName("Zafar");
-    u4.setEmail("Zafar@gmail.com");
-    u4.setRegister(false);
-    rows.add(u4);
-    User u5 = new User();
-    u5.setId(6);
-    u5.setName("Lopez");
-    u5.setEmail("Lopez@gmail.com");
-    u5.setRegister(true);
-    rows.add(u5);
-//    data.add(null);
-    Logz.table(rows,/*null,*/"getId", "getName", "getEmail", "isRegister");
   }
 
   private void githubCompare() {
@@ -187,7 +147,7 @@ public class Sample extends AppCompatActivity {
     Logz.list(null);
     Logz.list(new TextView(this));
 
-    String json = "[{\"name\":\"Ram\", \"email\":\"Ram@gmail.com\"},{\"name\":\"Bob\", \"email\":\"bob32@gmail.com\"}]";
+    String json = "[{\"نام\":\"Ram\", \"email\":\"Ram@gmail.com\"},{\"name\":\"Bob\", \"email\":\"bob32@gmail.com\"}]";
     try {
       JSONArray array = new JSONArray(json);
       Logz.json(array);
@@ -206,6 +166,46 @@ public class Sample extends AppCompatActivity {
     Logz.chart(0.00123, 0.00042);
     Logz.chart(null);
     Logz.chart();
+
+    List<User> rows = new ArrayList<>();
+    User u = new User();
+    u.setId(0);
+    u.setName("وحید");
+    u.setEmail("Victor@gmail.com");
+    u.setRegister(true);
+    rows.add(u);
+    User u1 = new User();
+    u1.setId(1);
+    u1.setName("Adams");
+    u1.setEmail("Adams@gmail.com");
+    u1.setRegister(false);
+    rows.add(u1);
+    User u2 = new User();
+    u2.setId(2);
+    u2.setName("David");
+    u2.setEmail("David@gmail.com");
+    u2.setRegister(true);
+    rows.add(u2);
+    User u3 = new User();
+    u3.setId(4);
+    u3.setName("Jones");
+    u3.setEmail("فارسی");
+    u3.setRegister(false);
+    rows.add(u3);
+    User u4 = new User();
+    u4.setId(5);
+    u4.setName("Zafar");
+    u4.setEmail("Zafar@gmail.com");
+    u4.setRegister(false);
+    rows.add(u4);
+    User u5 = new User();
+    u5.setId(6);
+    u5.setName("Lopez");
+    u5.setEmail("Lopez@gmail.com");
+    u5.setRegister(true);
+    rows.add(u5);
+//    data.add(null);
+    Logz.table(rows,/*null,*/"getId", "getName", "getEmail", "isRegister");
 
 //    long t1 = System.currentTimeMillis();
 //    for (int i = 0; i < 1000; i++)

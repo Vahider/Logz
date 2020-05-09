@@ -53,7 +53,28 @@ class MrList {
       }
       result.append("]");
     } else {
-      result.append(Arrays.toString(((Object[]) logList)));
+      // no diffrente between Integer and int // test
+      if (logList instanceof long[])
+        result.append(Arrays.toString((long[]) logList));
+      else if (logList instanceof int[])
+        result.append(Arrays.toString((int[]) logList));
+      else if (logList instanceof short[])
+        result.append(Arrays.toString((short[]) logList));
+      else if (logList instanceof byte[])
+        result.append(Arrays.toString((byte[]) logList));
+      else if (logList instanceof double[])
+        result.append(Arrays.toString((double[]) logList));
+      else if (logList instanceof float[])
+        result.append(Arrays.toString((float[]) logList));
+      else if (logList instanceof char[])
+        result.append(Arrays.toString((char[]) logList));
+      else if (logList instanceof boolean[])
+        result.append(Arrays.toString((boolean[]) logList));
+      else if (logList instanceof Object[])
+        result.append(Arrays.toString((Object[]) logList));
+//      else if (logList instanceof String[])
+//        result.append(Arrays.toString((long[]) logList));
+//      else
     }
   }
 

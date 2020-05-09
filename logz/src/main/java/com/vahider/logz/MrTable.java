@@ -45,7 +45,7 @@ class MrTable {
       // Columns
       StringBuilder title = new StringBuilder();
       for (int i = 0; i < columnMethods.length; i++) {
-        String space = Util.fillSpace(' ', (maxWordPerColumn[i] - columnMethods[i].length()) / 2); // TODO fix it, problem in here
+        String space = Util.fillSpace(' ', (maxWordPerColumn[i] - columnMethods[i].length()) / 2);
         String newColumn = "┃" + space + " " + columnMethods[i] + " " + space;
         newColumn = Util.fixSpaceExtra(newColumn, ' ', maxWordPerColumn[i] + 3); // 1 "┃" and 2 " "
         title.append(newColumn);
@@ -53,10 +53,11 @@ class MrTable {
       title.append("┃");
       int lineLength = title.length() - 2; // 2 "┃"
 
+      // '𝘭Ⅰᶥᶧ' for ltr sentence
       StringBuilder result = new StringBuilder();
-      result.append(Logz.ENTER).append("┏").append(Util.fillSpace('━', lineLength)).append("┑");
-      result.append(Logz.ENTER).append(title.toString());
-      result.append(Logz.ENTER).append("┣").append(Util.fillSpace('━', lineLength)).append("┫");
+      result.append(Logz.ENTER).append("𝘭").append("┏").append(Util.fillSpace('━', lineLength)).append("┑");
+      result.append(Logz.ENTER).append("𝘭").append(title.toString());
+      result.append(Logz.ENTER).append("𝘭").append("┣").append(Util.fillSpace('━', lineLength)).append("┫");
 
       // Rows
       for (Object row : rowModel) {
@@ -68,11 +69,9 @@ class MrTable {
           newRow = Util.fixSpaceExtra(newRow, ' ', maxWordPerColumn[i] + 3); // 1 "┃" and 2 " "
           desc.append(newRow);
         }
-        result.append(Logz.ENTER).append(desc).append("┃");
+        result.append(Logz.ENTER).append("𝘭").append(desc).append("┃");
       }
-
-      result.append(Logz.ENTER).append("┗").append(Util.fillSpace('━', lineLength)).append("┙");
-
+      result.append(Logz.ENTER).append("𝘭").append("┗").append(Util.fillSpace('━', lineLength)).append("┙");
       MrLog.show(result, 2);
 
     } catch (NullPointerException e) {
