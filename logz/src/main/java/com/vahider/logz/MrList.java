@@ -34,7 +34,7 @@ class MrList {
         openListContent(logList);
 
       else {
-        MrLog.error("List Not Valid", logList, 1);
+        MrLog.error("List not valid", logList, 1);
         return;
       }
 

@@ -55,7 +55,7 @@ public class Logz {
 
   private static void firstInit() {
     if (!isInitilize) {
-      Thread.setDefaultUncaughtExceptionHandler(new MrCrash());
+      Thread.setDefaultUncaughtExceptionHandler(new MrError());
 
       if (enable) {
         Log.v(tag, /*MrLog.log("",*/ "⌬ ──────────────────────────────────────────────────────────────────────────────────────────"/*, 0)*/);

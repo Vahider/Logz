@@ -45,7 +45,6 @@ class MrJson {
         MrLog.show(result, 2);
       } catch (JSONException e) {
         MrLog.error("Json not valid", logJson, 2);
-        // e.printStackTrace();
       }
     }
   }

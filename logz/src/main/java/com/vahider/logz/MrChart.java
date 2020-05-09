@@ -71,7 +71,7 @@ class MrChart {
           MrLog.show(result, 1);
         }
       } else {
-        MrLog.error("Chart points are", "null", 1);
+        MrLog.error("Chart is", yPoints, 1);
       }
     }
   }

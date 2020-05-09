@@ -13,7 +13,7 @@ class MrTable {
       if (rowModel != null)
         draw(rowModel, columnMethods);
       else
-        MrLog.error("Table, Rows Not Valid", rowModel, 1);
+        MrLog.error("Table, Rows not valid", rowModel, 1);
     }
   }
 
@@ -75,17 +75,13 @@ class MrTable {
       MrLog.show(result, 2);
 
     } catch (NullPointerException e) {
-      e.printStackTrace();
-      MrLog.error("Table, Some value are null", rowModel, 2);
+      MrLog.error("Table, Some values are null", rowModel, 2);
     } catch (IllegalAccessException e) {
-      e.printStackTrace();
       MrLog.error("Table, Some methods are private", e.getMessage(), 2);
     } catch (NoSuchMethodException e) {
-      e.printStackTrace();
-      MrLog.error("Table, Some methods not found", e.getMessage(), 2);
+      MrLog.error("Table, Some methods were not found", e.getMessage(), 2);
     } catch (InvocationTargetException e) {
-      e.printStackTrace();
-      MrLog.error("Table, ", e.getMessage(), 2);
+      MrLog.error("Table", e.getMessage(), 2);
     }
   }
 }
