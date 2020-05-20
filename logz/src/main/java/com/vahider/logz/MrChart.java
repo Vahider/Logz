@@ -9,7 +9,6 @@ import java.util.Locale;
 class MrChart {
 
   static void chart(double... yPoints) {
-    if (Logz.enable) {
       if (yPoints != null) {
         StringBuilder result = new StringBuilder(Util.setTitleStyle(Arrays.toString(yPoints)));
 
@@ -58,21 +57,20 @@ class MrChart {
           String spaceNumbers = Util.fillSpace('━', maxLengthY);
           String lineBox = Util.fillSpace('━', pointCount * offsetX - 1);
 
-          result.append(Logz.ENTER).append("𝘭┏").append(spaceNumbers).append(lineBox).append("━━━┑");
+          result.append(Logz.LOG_ENTER).append("ǀ┏").append(spaceNumbers).append(lineBox).append("━━━┑");
 
           int decimalCount = getDecimalCount(minValueY);
           for (int line = countLineY - 1; line >= 0; line--) {
             double titleValue = tinyDecimal(minValueY + ((offsetMaxMinY / (countLineY - 1)) * line), decimalCount);
-            result.append(Logz.ENTER).append("𝘭┣ ").append(titleValue).append(Util.fillSpace(' ', maxLengthY - String.valueOf(titleValue).length())).append(listLineY[line].toString());
+            result.append(Logz.LOG_ENTER).append("ǀ┣ ").append(titleValue).append(Util.fillSpace(' ', maxLengthY - String.valueOf(titleValue).length())).append(listLineY[line].toString());
           }
 
-          result.append(Logz.ENTER).append("𝘭┗").append(spaceNumbers).append(lineBox).append("━━━┙");
+          result.append(Logz.LOG_ENTER).append("ǀ┗").append(spaceNumbers).append(lineBox).append("━━━┙");
 
           MrLog.show(result, 1);
         }
       } else {
-        MrLog.error("Chart is", yPoints, 1);
-      }
+        MrLog.error("Chart is", "null", 1); // yPoints is null and cause error
     }
   }
 

@@ -7,14 +7,12 @@ import java.util.List;
 class MrTable {
 
   static void table(List rowModel, String... columnMethods) {
-    if (Logz.enable) {
       for (int i = 0; i < columnMethods.length; i++)
         columnMethods[i] = String.valueOf(Util.safeDetection(columnMethods[i]));
       if (rowModel != null)
         draw(rowModel, columnMethods);
       else
         MrLog.error("Table, Rows not valid", rowModel, 1);
-    }
   }
 
   private static void draw(List rowModel, String... columnMethods) {
@@ -46,18 +44,18 @@ class MrTable {
       StringBuilder title = new StringBuilder();
       for (int i = 0; i < columnMethods.length; i++) {
         String space = Util.fillSpace(' ', (maxWordPerColumn[i] - columnMethods[i].length()) / 2);
-        String newColumn = "┃" + space + " " + columnMethods[i] + " " + space;
+        String newColumn = "ǁ" + space + " " + columnMethods[i] + " " + space; // ǀǁ \u0009(4chars spaces) are utf-8
         newColumn = Util.fixSpaceExtra(newColumn, ' ', maxWordPerColumn[i] + 3); // 1 "┃" and 2 " "
         title.append(newColumn);
       }
-      title.append("┃");
+      title.append("ǁ");
       int lineLength = title.length() - 2; // 2 "┃"
 
       // '𝘭Ⅰᶥᶧ' for ltr sentence
       StringBuilder result = new StringBuilder();
-      result.append(Logz.ENTER).append("𝘭").append("┏").append(Util.fillSpace('━', lineLength)).append("┑");
-      result.append(Logz.ENTER).append("𝘭").append(title.toString());
-      result.append(Logz.ENTER).append("𝘭").append("┣").append(Util.fillSpace('━', lineLength)).append("┫");
+      result.append(Logz.LOG_ENTER).append("╔").append(Util.fillSpace('═', lineLength)).append("╗");
+      result.append(Logz.LOG_ENTER).append(title.toString());
+      result.append(Logz.LOG_ENTER).append("╠").append(Util.fillSpace('═', lineLength)).append("╣");
 
       // Rows
       for (Object row : rowModel) {
@@ -65,13 +63,17 @@ class MrTable {
         for (int i = 0; i < columnMethods.length; i++) {
           Method method = row.getClass().getMethod(columnMethods[i]);
           String space = Util.fillSpace(' ', (maxWordPerColumn[i] - String.valueOf(method.invoke(row)).length()) / 2);
-          String newRow = "┃" + space + " " + method.invoke(row) + " " + space;
+          String newRow = "ǁ" + space + " " + method.invoke(row) + " " + space;
           newRow = Util.fixSpaceExtra(newRow, ' ', maxWordPerColumn[i] + 3); // 1 "┃" and 2 " "
           desc.append(newRow);
         }
-        result.append(Logz.ENTER).append("𝘭").append(desc).append("┃");
+        if (!Logz.limitedLog && result.length() + desc.length() > 3000) {
+          MrLog.show(result, 2);
+          result = new StringBuilder();
+        }
+        result.append(Logz.LOG_ENTER).append(desc).append("ǁ");
       }
-      result.append(Logz.ENTER).append("𝘭").append("┗").append(Util.fillSpace('━', lineLength)).append("┙");
+      result.append(Logz.LOG_ENTER).append("╚").append(Util.fillSpace('═', lineLength)).append("╝");
       MrLog.show(result, 2);
 
     } catch (NullPointerException e) {

@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Logz {
 
-  public static final String ENTER = "\n                         ";
+  public static final String LOG_ENTER = "\n                         ";
   private static boolean isInitilize = false;
 
   static String tag;
@@ -28,6 +28,7 @@ public class Logz {
   static boolean elapsing;
   static Case titleCase;
   static boolean viewDetection;
+  static boolean limitedLog;
 
   private Logz(final Builder builder) {
     tag = builder.tag;
@@ -49,6 +50,7 @@ public class Logz {
     elapsing = builder.elapsing;
     titleCase = builder.titleCase;
     viewDetection = builder.viewDetection;
+    limitedLog = builder.limitedLength;
 
     firstInit();
   }
@@ -58,13 +60,16 @@ public class Logz {
       Thread.setDefaultUncaughtExceptionHandler(new MrError());
 
       if (enable) {
-        Log.v(tag, /*MrLog.log("",*/ "⌬ ──────────────────────────────────────────────────────────────────────────────────────────"/*, 0)*/);
-        Log.v(tag, /*MrLog.log("",*/ "⌬ ────────────────────────────────── NEW LAUNCH WITH LOGZ ──────────────────────────────────"/*, 0)*/);
-        Log.v(tag, /*MrLog.log("",*/ "⌬ ──────────────────────────────────────────────────────────────────────────────────────────"/*, 0)*/);
-      } else if (!enable) {
-        Log.e(tag, "──────────────────────────────── LOGZ IS DISABLE ───────────────────────────────");
-      } else if (!used) {
-        Log.w(tag, "─────────────────────────────── LOGZ WAS NOT USED ──────────────────────────────");
+        if (used) {
+          Log.v(tag, "⌬ ──────────────────────────────────────────────────────────────────────────────────────────");
+          Log.v(tag, "⌬ ────────────────────────────────── NEW LAUNCH WITH LOGZ ──────────────────────────────────");
+          Log.v(tag, "⌬ ──────────────────────────────────────────────────────────────────────────────────────────");
+        } else
+          Log.w(tag, "⌬ ──────────────────────────────────────────────────────────────────────────────────────────");
+          Log.w(tag, "⌬ ──────────────────────────────────── LOGZ WAS NOT USED ───────────────────────────────────");
+          Log.w(tag, "⌬ ──────────────────────────────────────────────────────────────────────────────────────────");
+      } else {
+        Log.e(tag, "⌬ ───────────────────────────────────── LOGZ IS DISABLE ────────────────────────────────────");
       }
 
       isInitilize = true;
@@ -78,106 +83,186 @@ public class Logz {
   // Logz
   public static void is(Object msg) {
     firstInit();
-    MrLog.is(Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.is(Util.safeDetection(msg));
+      else
+        Log.d(Logz.tag, "⌬ " + Util.safeDetection(msg));
   }
 
   public static void is(Object title, Object msg) {
     firstInit();
-    MrLog.is(Util.safeDetection(title), Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.is(Util.safeDetection(title), Util.safeDetection(msg));
+      else
+        Log.d(Logz.tag, "⌬ " + Util.safeDetection(title) + " : " + Util.safeDetection(msg));
   }
 
   public static void v(Object title, Object msg) {
     firstInit();
-    MrLog.v(Util.safeDetection(title), Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.v(Util.safeDetection(title), Util.safeDetection(msg));
+      else
+        Log.v(Logz.tag, "⌬ " + Util.safeDetection(title) + " : " + Util.safeDetection(msg));
   }
 
   public static void d(Object title, Object msg) {
     firstInit();
-    MrLog.d(Util.safeDetection(title), Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.d(Util.safeDetection(title), Util.safeDetection(msg));
+      else
+        Log.d(Logz.tag, "⌬ " + Util.safeDetection(title) + " : " + Util.safeDetection(msg));
   }
 
   public static void i(Object title, Object msg) {
     firstInit();
-    MrLog.i(Util.safeDetection(title), Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.i(Util.safeDetection(title), Util.safeDetection(msg));
+      else
+        Log.i(Logz.tag, "⌬ " + Util.safeDetection(title) + " : " + Util.safeDetection(msg));
   }
 
   public static void w(Object title, Object msg) {
     firstInit();
-    MrLog.w(Util.safeDetection(title), Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.w(Util.safeDetection(title), Util.safeDetection(msg));
+      else
+        Log.w(Logz.tag, "⌬ " + Util.safeDetection(title) + " : " + Util.safeDetection(msg));
   }
 
   public static void e(Object title, Object msg) {
     firstInit();
-    MrLog.e(Util.safeDetection(title), Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.e(Util.safeDetection(title), Util.safeDetection(msg));
+      else
+        Log.e(Logz.tag, "⌬ " + Util.safeDetection(title) + " : " + Util.safeDetection(msg));
   }
 
   public static void v(Object msg) {
     firstInit();
-    MrLog.v(Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.v(Util.safeDetection(msg));
+      else
+        Log.v(Logz.tag, "⌬ " + Util.safeDetection(msg));
   }
 
   public static void d(Object msg) {
     firstInit();
-    MrLog.d(Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.d(Util.safeDetection(msg));
+      else
+        Log.d(Logz.tag, "⌬ " + Util.safeDetection(msg));
   }
 
   public static void i(Object msg) {
     firstInit();
-    MrLog.i(Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.i(Util.safeDetection(msg));
+      else
+        Log.i(Logz.tag, "⌬ " + Util.safeDetection(msg));
   }
 
   public static void w(Object msg) {
     firstInit();
-    MrLog.w(Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.w(Util.safeDetection(msg));
+      else
+        Log.w(Logz.tag, "⌬ " + Util.safeDetection(msg));
   }
 
   public static void e(Object msg) {
     firstInit();
-    MrLog.e(Util.safeDetection(msg));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.e(Util.safeDetection(msg));
+      else
+        Log.e(Logz.tag, "⌬ " + Util.safeDetection(msg));
   }
 
   public static void line(Object title) { // 50 character
     firstInit();
-    MrLog.line(Util.safeDetection(title));
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.line(Util.safeDetection(title));
+      else
+        Log.v(Logz.tag, "⌬ " + Util.safeDetection(title));
   }
 
   public static void line() {
     firstInit();
-    MrLog.line();
+    if (Logz.enable)
+      if (Logz.used)
+        MrLog.line();
+      else
+        Log.v(Logz.tag, "⌬ " + "");
   }
 
   // List
-  public static void list(Object logList) {
+  public static void array(Object logList) {
     firstInit();
-    MrList.list("", Util.safeDetection(logList));
+    if (Logz.enable)
+      if (Logz.used)
+        MrArray.array("", Util.safeDetection(logList));
+      else
+        Log.i(Logz.tag, "⌬ " + Util.safeDetection(logList));
   }
 
-  public static void list(Object title, Object logList) {
+  public static void array(Object title, Object logList) {
     firstInit();
-    MrList.list(Util.safeDetection(title).toString(), Util.safeDetection(logList));
+    if (Logz.enable)
+      if (Logz.used)
+        MrArray.array(Util.safeDetection(title).toString(), Util.safeDetection(logList));
+      else
+        Log.i(Logz.tag, "⌬ " + Util.safeDetection(title) + " : " + Util.safeDetection(logList));
   }
 
   // Json
   public static void json(Object logJson) {
     firstInit();
-    MrJson.json("", Util.safeDetection(logJson));
+    if (Logz.enable)
+      if (Logz.used)
+        MrJson.json("", Util.safeDetection(logJson));
+      else
+        Log.i(Logz.tag, "⌬ " + Util.safeDetection(logJson));
   }
 
   public static void json(Object title, Object logJson) {
     firstInit();
-    MrJson.json(Util.safeDetection(title), Util.safeDetection(logJson));
+    if (Logz.enable)
+      if (Logz.used)
+        MrJson.json(Util.safeDetection(title), Util.safeDetection(logJson));
+      else
+        Log.i(Logz.tag, "⌬ " + Util.safeDetection(title) + " : " + Util.safeDetection(logJson));
   }
 
   // Chart
   public static void chart(double... yPoints) {
     firstInit();
-    MrChart.chart(yPoints);
+    if (Logz.enable)
+      if (Logz.used)
+        MrChart.chart(yPoints);
+      else
+        Log.i(Logz.tag, "⌬ (Chart) " + Util.safeDetection(yPoints));
   }
 
   // Table
   public static void table(List rowModel, String... columnMethods) {
     firstInit();
-    MrTable.table(rowModel, columnMethods);
+    if (Logz.enable)
+      if (Logz.used)
+        MrTable.table(rowModel, columnMethods);
+      else
+        Log.i(Logz.tag, "⌬ (Table) " + Util.safeDetection(rowModel));
   }
 
 
@@ -195,6 +280,7 @@ public class Logz {
     private boolean elapsing = true;
     private Case titleCase = Case.CAMEL_SPACE;
     private boolean viewDetection = true;
+    private boolean limitedLength = false;
 
     public Builder setTag(final String tag) {
       this.tag = tag;
@@ -253,6 +339,11 @@ public class Logz {
 
     public Builder useViewDetection(final boolean viewDetection) {
       this.viewDetection = viewDetection;
+      return this;
+    }
+
+    public Builder setLimitLength(boolean limitedLength) {
+      this.limitedLength = limitedLength;
       return this;
     }
 

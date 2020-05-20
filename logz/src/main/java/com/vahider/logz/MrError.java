@@ -14,18 +14,18 @@ public class MrError implements Thread.UncaughtExceptionHandler {
     Throwable cause = throwable.getCause();
 
     StringBuilder report = new StringBuilder();
-    report.append(Logz.ENTER).append(Util.setTitleStyle("Error")).append(throwable.toString());
+    report.append(Logz.LOG_ENTER).append(Util.setTitleStyle("Error")).append(throwable.toString());
     for (StackTraceElement stackTraceElement : arr) {
-      report.append(Logz.ENTER).append(stackTraceElement.toString());
+      report.append(Logz.LOG_ENTER).append(stackTraceElement.toString());
     }
 
     // If the exception was thrown in a background thread inside
     // AsyncTask, then the actual exception can be found with getCause
     if (cause != null) {
-      report.append(Logz.ENTER).append(Logz.ENTER).append(Util.setTitleStyle("Error in background")).append(cause.toString());
+      report.append(Logz.LOG_ENTER).append(Logz.LOG_ENTER).append(Util.setTitleStyle("Error in background")).append(cause.toString());
       arr = cause.getStackTrace();
       for (StackTraceElement stackTraceElement : arr) {
-        report.append(Logz.ENTER).append(stackTraceElement.toString());
+        report.append(Logz.LOG_ENTER).append(stackTraceElement.toString());
       }
     }
 

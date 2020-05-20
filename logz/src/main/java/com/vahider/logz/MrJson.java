@@ -13,15 +13,12 @@ class MrJson {
 
   private static StringBuilder result;
 
-  static void json(Object title, Object logList) {
-    if (Logz.enable) {
+  static void json(Object title, Object logJson) {
       result = new StringBuilder(Util.setTitleStyle(title.toString()));
-      draw(logList);
-    }
+      draw(logJson);
   }
 
   private static void draw(Object logJson) {
-    if (Logz.enable) {
       try {
         Object json = new JSONTokener(logJson.toString()).nextValue();
         if (json instanceof JSONObject) {
@@ -47,10 +44,13 @@ class MrJson {
         MrLog.error("Json not valid", logJson, 2);
       }
     }
-  }
 
   private static void iJson(String json) {
-    result.append(Logz.ENTER).append("𝘭┃").append(json);
+    if (!Logz.limitedLog && result.length() + json.length() > 3000) {
+      MrLog.show(result, 3);
+      result = new StringBuilder();
+    }
+    result.append(Logz.LOG_ENTER).append("ǀ").append(json.replace("\"", "᱿")); // ˮ᱿
   }
 
   private static void readJsonObject(JSONObject jsonObject, int level) throws JSONException {
@@ -65,7 +65,7 @@ class MrJson {
         readJsonObject(getJson, level);
 
       } else if (jsonObject.get(name) instanceof JSONArray) {
-        iJson("│" + getJsonOffset(level) + detectJsonClass(name) + " [");
+        iJson(getJsonOffset(level) + detectJsonClass(name) + " [");
         JSONArray getJson = new JSONArray(jsonObject.get(name).toString());
         readJsonArray(getJson, level);
 

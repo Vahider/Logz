@@ -9,12 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-class MrList {
+class MrArray {
 
   private static StringBuilder result;
 
-  static void list(String title, Object logList) {
-    if (Logz.enable) {
+  static void array(String title, Object logList) {
       result = new StringBuilder(Util.setTitleStyle(title));
 
       // Array
@@ -34,26 +33,25 @@ class MrList {
         openListContent(logList);
 
       else {
-        MrLog.error("List not valid", logList, 1);
+        MrLog.error("Array not valid", logList, 1);
         return;
       }
 
       MrLog.show(result, 1);
-    }
   }
 
   static void openArrayContent(Object logList) {
     if (logList instanceof View[]) {
       View[] views = ((View[]) logList);
-      result.append("[");
+      result.append("{");
       for (View view : views) {
         result.append(Util.safeDetection(view).toString());
         if (view != views[views.length - 1])
           result.append(", ");
       }
-      result.append("]");
+      result.append("}");
     } else {
-      // no diffrente between Integer and int // test
+      // Integer apply on object[] // test
       if (logList instanceof long[])
         result.append(Arrays.toString((long[]) logList));
       else if (logList instanceof int[])
@@ -84,7 +82,7 @@ class MrList {
     Iterator it = map.entrySet().iterator();
     while (it.hasNext()) {
       Map.Entry pair = (Map.Entry) it.next();
-      result.append(Util.safeDetection(pair.getKey())).append(":").append(Util.safeDetection(pair.getValue()));
+      result.append(Util.safeDetection(pair.getKey())).append("=").append(Util.safeDetection(pair.getValue()));
       if (it.hasNext())
         result.append(", ");
       it.remove(); // avoids a ConcurrentModificationException

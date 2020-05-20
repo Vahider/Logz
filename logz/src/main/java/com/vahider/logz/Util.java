@@ -36,7 +36,7 @@ public class Util {
   static Object safeDetection(Object object) { // view and null
     if (object == null)
       return "null";
-    if (Logz.viewDetection && object instanceof View) {
+    if (Logz.used && Logz.viewDetection && object instanceof View) {
       View view = (View) object;
       String id = "-";
       if (view.getId() != View.NO_ID)
