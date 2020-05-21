@@ -1,24 +1,25 @@
-# ⌬ 𝓛𝓸𝓰𝔃            [![](https://jitpack.io/v/Vahider/Logz.svg)](https://jitpack.io/#Vahider/Logz)
+# ⌬ 𝓛𝓸𝓰𝔃 [![](https://jitpack.io/v/Vahider/Logz.svg)](https://jitpack.io/#Vahider/Logz)
 Very simple, practical, attractive and powerful logger for android
 
-## Possibilities
-- Show list content
-- Draw chart
+## Abilities
+- Each arguamnt
+- Fast writer
+- Show log's address
+- Show array content
+- Draw a chart
+- Draw a table
 - Open json format
 - View detection
-- Show log's address
 - Customize time
 - Safe null
-- Fast log
-- Split lounch
+- Split launch
 - Show elapsing
-- Adapted with crashing
+- Adapted with crashes
 - Set title for logs
-- every arguamnt for logging
 
 ## Comparison
 ###### Comparison between default log and Logz
-![compration](https://user-images.githubusercontent.com/51606884/82557542-290c9b80-9b81-11ea-8c80-a071ef9d751f.png)
+![Picture3](https://user-images.githubusercontent.com/51606884/82559195-6a527a80-9b84-11ea-83e4-21d89ab2b4a8.png)
 
 ## Setup
 ###### in `biuld.gradle (Module app)`
@@ -105,15 +106,18 @@ setLimitLength | false | `true` `false` | Limitation for Maximum Line | When you
 To have a better experience than Logz, make the above settings and feel the change
 ###### Hide old information
 To delete old information as well as shorten it, you have to click on the settings icon in the left menu of logcat and delete all the ticks.
+
 ![Alt text](https://user-images.githubusercontent.com/51606884/75083508-6899fc00-552e-11ea-8708-32e6e972d120.png)
 ###### Hide extra logs
 For only writed logs to be displayed, you must create a new `filter` in the logcat.
 So in the logcat, click on the filters menu and click on `Edit Filter Configuration` and choose a name for your filter, and finally write the `⌬` in the `Log Message` field or tagname in the `Log Tag` field.
 If you want to see other logs, just select other filters, such as `show only selected applicatinos` or `no filters`
+
 ![Alt text](https://user-images.githubusercontent.com/51606884/75083511-69cb2900-552e-11ea-8722-f05ac4119f2f.png)
 ###### Paint the logcat
 To better identify the logs, you can change the color of the logs in Android Studio.
 Go to File>Settings>Editor>ColorScheme>AndroidLogcat then change color the color of each levels.
+
 ![Alt text](https://user-images.githubusercontent.com/51606884/75083515-6b94ec80-552e-11ea-95fb-4d14186cecf3.png)
 ###### Use the same width font
 To align the templates, try using a font that has the same letters.
