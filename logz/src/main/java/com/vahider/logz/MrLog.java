@@ -132,7 +132,7 @@ class MrLog {
       StackTraceElement[] elements = Thread.currentThread().getStackTrace();
       if (elements[pathPos] != null) {
         if (Logz.infoClicable)
-          return "Ⓕ" + summaryText(elements[pathPos].getMethodName()) + ".(" + summaryText(elements[pathPos].getFileName()) + ":" + elements[pathPos].getLineNumber() + ")";
+          return "ⓜ" + summaryText(elements[pathPos].getMethodName()) + ".(" + summaryText(elements[pathPos].getFileName()) + ":" + elements[pathPos].getLineNumber() + ")";
         else
           return "Ⓕ" + summaryText(elements[pathPos].getFileName().replace(".java", "").replace(".kt", "")) + " ⓜ" + summaryText(elements[pathPos].getMethodName()) + " Ⓛ" + elements[pathPos].getLineNumber();
       }

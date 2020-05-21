@@ -8,7 +8,7 @@ class MrTable {
 
   static void table(List rowModel, String... columnMethods) {
       for (int i = 0; i < columnMethods.length; i++)
-        columnMethods[i] = String.valueOf(Util.safeDetection(columnMethods[i]));
+        columnMethods[i] = String.valueOf(Util.checkNullViewArray(columnMethods[i]));
       if (rowModel != null)
         draw(rowModel, columnMethods);
       else

@@ -1,7 +1,7 @@
-# ⌬ 𝓛𝓸𝓰𝔃
+# ⌬ 𝓛𝓸𝓰𝔃  [![](https://jitpack.io/v/Vahider/Logz.svg)](https://jitpack.io/#Vahider/Logz)
 Very simple, practical, attractive and powerful logger for android
 
-### Possibilities
+## Possibilities
 - Show list content
 - Draw chart
 - Open json format
@@ -16,20 +16,14 @@ Very simple, practical, attractive and powerful logger for android
 - Set title for logs
 - every arguamnt for logging
 
-### Comparison
-###### Write log with default log
+## Comparison
+###### Comparison between default log and Logz
 ![Alt text](https://user-images.githubusercontent.com/51606884/75083512-6a63bf80-552e-11ea-9cb4-006a42382a36.png)
-###### Write log with **Logz**
-![Alt text](https://user-images.githubusercontent.com/51606884/75083516-6c2d8300-552e-11ea-9d4f-458aeff2fa10.png)
-###### Result of default log
-![Alt text](https://user-images.githubusercontent.com/51606884/75083513-6a63bf80-552e-11ea-9135-5117bc0a11bb.png)
-###### Result of **Logz**
-![Alt text](https://user-images.githubusercontent.com/51606884/75083518-6c2d8300-552e-11ea-9dc4-206d92ad2632.png)
 
-### Setup
+## Setup
 ###### in `biuld.gradle (Module app)`
 ```
-implementation 'com.github.vahider:logz:1.4.0'
+implementation 'com.github.vahider:logz:1.5.7'
 ```
 ###### in `biuld.gradle (project)`
 ```
@@ -40,94 +34,93 @@ allprojects {
 }
 ```
 
-### Document
-> **Tip**: `Title` is optional item and diffrente text style for every log. For add *title* to log, add a Object before `everythings`. Example: `Logz.i(title, everythings);`
+## Document
+> **Tip**: `Title` is optional with a different style for each log. To add *title* to log, add an object before the `msg`. Example: `Logz.i(title, everything);`
 ###### Normal log
 ```
-Logz.v(eveythings);
-Logz.d(eveythings);
-Logz.i(eveythings);
-Logz.w(eveythings);
-Logz.e(eveythings);
+Logz.v(eveything);
+Logz.d(eveything);
+Logz.i(eveything);
+Logz.w(eveything);
+Logz.e(eveything);
 ```
-###### Fast log
+###### Fast & clear log
 ```
-Logz.is(eveythings);
+Logz.is(eveything);
 ```
-###### Draw line
+###### Draw a line
 ```
 Logz.line(eveythings);
+Logz.line();
 ```
-###### Log list content
-```
-Logz.list(List);
-Logz.list(Array);
-Logz.list(Set);
-Logz.list(Map);
-```
-###### Log json format
+###### Draw a json
 ```
 Logz.json(List);
 ```
-###### Draw chart
+###### Draw a chart
 ```
 Logz.chart(double array);
 ```
+###### Draw a table
+```
+Logz.table(list, Name of methods as reflection);
+```
 
-
-### Options
+## Options
 ###### Write this code in `first activity` or `Application` class
 ###### They are default and Optional values, for not changing you can remove line of options.
 ```
 new Logz.Builder()
       .setTag("LOGZ")
       .setEnable(true)
-      .setUsed(USED)
+      .setUsed(true)
       .showInfo(true)
       .setInfoClickable(false)
       .setTimeFormat(Time.CLOCK)
       .setInfoMode(Info.CLASS, Info.METHOD, Info.LINE)
-      .useSummaryMode(Summary.NONE)
+      .useSummaryMode(Summary.START)
       .setTitleCase(Case.CAMEL_SPACE)
       .showElapsing(true)
       .useViewDetection(true)
+      .setLimitLength(false)
       .reload();
 ```
 
-Method | Default | Values | Desc | Usage
+Method | Default | Arguments | Description | Usage
 ---|---|---|---|---
-setTag | "LOGZ" | Every | Change log tag | For following logs in Logcat, More desc in Continue(Settings)
-setEnable | true | `true` `false` | For disable and hide logz | set false when release issue
-setUsed | true | `true` `false` | For disable Logz engine and use logz options with default log | when use very much logs (monitoring) and want to fastest log
-showInfo | true | `true` `false` | Fow showing time and address of log | true when you want see info of logs
-setInfoClickable | true | `true` `false` | You can click on address log in logcat and transform to log writed place | Everytime
-setTimeFormat | Time.CLOCK | `NONE` `STAMP` `CLOCK` `DATE` `FULL` `"yyyy/MM/dd-HH:mm:ss"` | how you will see time of info? | Everytime
-setInfoMode | Info.CLASS, Info.METHOD, Info.LINE | `FILE` `CLASS` `METHOD` `LINE` | Show wich info? | Everytime
-useSummaryMode | Summary.START | `START` `END` `NONE` | Shortly item of infos | When any info longest from 20 char
-setTitleCase | Case.CAMEL_SPACE | `CAMEL` `CAMEL_SPACE` `NONE` | Difference title style and log | Everytime
-showElapsing | true | `true` `false` | Show offset between logs if was above 3 secounds  | Everytime
-useViewDetection | true | `true` `false` | Show views shortly and with id | Everytime
+setTag | "LOGZ" | Anything | rename log tag | To follow the logs in Logcat, read more in the settings
+setEnable | true | `true` `false` | To turn off the logz | You can disable it when you publish
+setUsed | true | `true` `false` | To disable the Logz engine and use the default log | When browsing a few thousand logs, to increase speed
+showInfo | true | `true` `false` | Show log time and address | Set `true` when you want to see the log information
+setInfoClickable | true | `true` `false` | With click on the log information in the logcat and be directed to the location of the log | Everytime
+setTimeFormat | Time.CLOCK | `NONE` `STAMP` `CLOCK` `DATE` `FULL` `"yyyy/MM/dd-HH:mm:ss"` | How do you want to see the information time? | Everytime
+setInfoMode | Info.CLASS, Info.METHOD, Info.LINE | `FILE` `CLASS` `METHOD` `LINE` | Which log information to display? | Everytime
+useSummaryMode | Summary.START | `START` `END` `NONE` | Summary of information | When the log information is longer than 20 characters
+setTitleCase | Case.CAMEL_SPACE | `CAMEL` `CAMEL_SPACE` `NONE` | Types of log titles | Everytime
+showElapsing | true | `true` `false` | Display the delay between two logs if more than 3 seconds have elapsed | Everytime
+useViewDetection | true | `true` `false` | Summary of view | Everytime
+setLimitLength | false | `true` `false` | Limitation for Maximum Line | When you have a table or jason that has countless lines
 
-### Advanced settings
-For get better expensive from logging, pass below levels and feel changes.
-###### Hide old info
-For remove old logs's info and shortly too, you must be click on left settings icon in logcat, and remove all ticks.
-![Alt text](https://user-images.githubusercontent.com/51606884/75083508-6899fc00-552e-11ea-8708-32e6e972d120.png)
+## Advanced settings
+To have a better experience than Logz, make the above settings and feel the change
+###### Hide old information
+To delete old information as well as shorten it, you have to click on the settings icon in the left menu of logcat and delete all the ticks.![Alt text](https://user-images.githubusercontent.com/51606884/75083508-6899fc00-552e-11ea-8708-32e6e972d120.png)
 ###### Hide extra logs
-For show just your log, you must be create new filter in logcat. click on Filter, then click on Edit filter configuration and set name for filter and write `⌬` in Log message field.
-If you want show other logs, just select other filter example `show only selected applicatinos` or `no filters`
+For only writed logs to be displayed, you must create a new `filter` in the logcat.
+So in the logcat, click on the filters menu and click on `Edit Filter Configuration` and choose a name for your filter, and finally write the `⌬` in the `Log Message` field or tagname in the `Log Tag` field.
+If you want to see other logs, just select other filters, such as `show only selected applicatinos` or `no filters`
 ![Alt text](https://user-images.githubusercontent.com/51606884/75083511-69cb2900-552e-11ea-8722-f05ac4119f2f.png)
-###### Use coloric text
-For better detection log, you can change log colors in android studio settings.
-go to File>Settings>Editor>ColorScheme>ConsoleColors and click on Log Console then change every log levels.
+###### Paint the logcat
+To better identify the logs, you can change the color of the logs in Android Studio.
+Go to File>Settings>Editor>ColorScheme>AndroidLogcat then change color the color of each levels.
 ![Alt text](https://user-images.githubusercontent.com/51606884/75083515-6b94ec80-552e-11ea-95fb-4d14186cecf3.png)
-###### Use same width font
-For better expencive, use font that same of characters width.
-go to File>Settings>Editor>ColorScheme>ConsoleFont and use same width font example `Consolas`
-###### Open logcat fastest
-Put Alt+6 for open and close logcat
+###### Use the same width font
+To align the templates, try using a font that has the same letters.
+go to File>Settings>Editor>ColorScheme>ConsoleFont and select a font that is the same width, example `Consolas`
+###### Opening the logate faster
+Press Alt + 6 to open or close the logcat
 
-### Licence
+## Licence
 ```
 MIT License
 

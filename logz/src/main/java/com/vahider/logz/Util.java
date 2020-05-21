@@ -33,15 +33,52 @@ public class Util {
     return "";
   }
 
-  static Object safeDetection(Object object) { // view and null
+  static Object checkNullViewArray(Object object) {
     if (object == null)
       return "null";
-    if (Logz.used && Logz.viewDetection && object instanceof View) {
-      View view = (View) object;
-      String id = "-";
-      if (view.getId() != View.NO_ID)
-        id = view.getContext().getResources().getResourceEntryName(view.getId());
-      return view.getClass().getSimpleName() + "(" + id + ")";
+    if (Logz.used) {
+      if (Logz.viewDetection && object instanceof View) {
+        View view = (View) object;
+        String id = "-";
+        if (view.getId() != View.NO_ID)
+          id = view.getContext().getResources().getResourceEntryName(view.getId());
+        return view.getClass().getSimpleName() + "(" + id + ")";
+      }
+      if (object.getClass().isArray()) {
+        if (object instanceof View[]) {
+          View[] views = ((View[]) object);
+          StringBuilder result = new StringBuilder("{");
+          for (View view : views) {
+            result.append(Util.checkNullViewArray(view).toString());
+            if (view != views[views.length - 1])
+              result.append(", ");
+          }
+          result.append("}");
+          return result.toString();
+        } else {
+          // Integer applied on object[]
+          if (object instanceof long[])
+            return Arrays.toString((long[]) object);
+          else if (object instanceof int[])
+            return Arrays.toString((int[]) object);
+          else if (object instanceof short[])
+            return Arrays.toString((short[]) object);
+          else if (object instanceof byte[])
+            return Arrays.toString((byte[]) object);
+          else if (object instanceof double[])
+            return Arrays.toString((double[]) object);
+          else if (object instanceof float[])
+            return Arrays.toString((float[]) object);
+          else if (object instanceof char[])
+            return Arrays.toString((char[]) object);
+          else if (object instanceof boolean[])
+            return Arrays.toString((boolean[]) object);
+          else if (object instanceof Object[])
+            return Arrays.toString((Object[]) object);
+//      else if (logList instanceof String[])
+//        return Arrays.toString((long[]) logList);
+        }
+      }
     }
     return object;
   }
