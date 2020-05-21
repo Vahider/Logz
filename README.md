@@ -1,4 +1,4 @@
-# ⌬ 𝓛𝓸𝓰𝔃  [![](https://jitpack.io/v/Vahider/Logz.svg)](https://jitpack.io/#Vahider/Logz)
+# ⌬ 𝓛𝓸𝓰𝔃            [![](https://jitpack.io/v/Vahider/Logz.svg)](https://jitpack.io/#Vahider/Logz)
 Very simple, practical, attractive and powerful logger for android
 
 ## Possibilities
@@ -18,12 +18,12 @@ Very simple, practical, attractive and powerful logger for android
 
 ## Comparison
 ###### Comparison between default log and Logz
-![Alt text](https://user-images.githubusercontent.com/51606884/75083512-6a63bf80-552e-11ea-9cb4-006a42382a36.png)
+![compration](https://user-images.githubusercontent.com/51606884/82557542-290c9b80-9b81-11ea-8c80-a071ef9d751f.png)
 
 ## Setup
 ###### in `biuld.gradle (Module app)`
 ```
-implementation 'com.github.vahider:logz:1.5.7'
+implementation 'com.github.vahider:logz:1.5.9'
 ```
 ###### in `biuld.gradle (project)`
 ```
@@ -104,7 +104,8 @@ setLimitLength | false | `true` `false` | Limitation for Maximum Line | When you
 ## Advanced settings
 To have a better experience than Logz, make the above settings and feel the change
 ###### Hide old information
-To delete old information as well as shorten it, you have to click on the settings icon in the left menu of logcat and delete all the ticks.![Alt text](https://user-images.githubusercontent.com/51606884/75083508-6899fc00-552e-11ea-8708-32e6e972d120.png)
+To delete old information as well as shorten it, you have to click on the settings icon in the left menu of logcat and delete all the ticks.
+![Alt text](https://user-images.githubusercontent.com/51606884/75083508-6899fc00-552e-11ea-8708-32e6e972d120.png)
 ###### Hide extra logs
 For only writed logs to be displayed, you must create a new `filter` in the logcat.
 So in the logcat, click on the filters menu and click on `Edit Filter Configuration` and choose a name for your filter, and finally write the `⌬` in the `Log Message` field or tagname in the `Log Tag` field.
