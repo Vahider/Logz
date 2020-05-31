@@ -84,7 +84,7 @@ class MrLog {
   }
 
   static void error(Object title, Object log, int extraLevel) {
-    Log.e(Logz.tag, log(title, log, extraLevel));
+    Log.e(Logz.tag, log(title, Util.checkNullViewArray(log), extraLevel));
   }
 
   // Settings

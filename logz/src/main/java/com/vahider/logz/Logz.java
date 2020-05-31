@@ -9,26 +9,28 @@ import com.vahider.logz.enums.TimeMode;
 
 import java.util.List;
 
+// ⌬
 public class Logz {
 
   public static final String LOG_ENTER = "\n                         ";
   private static boolean isInitilize = false;
 
-  static String tag;
-  static boolean enable; // used in debugging mode
-  static boolean used;
-  static String timeFormat;
-  static boolean showInfo;
-  static boolean infoClicable;
-  static boolean showInfoFile;
-  static boolean showInfoClass;
-  static boolean showInfoMethod;
-  static boolean showInfoLine;
-  static Summary summary;
-  static boolean elapsing;
-  static Case titleCase;
-  static boolean viewDetection;
-  static boolean limitedLog;
+  // Tip: Values must be define in here and on biulder
+  static String tag = "⌬ LOGZ";
+  static boolean enable = true; // useing in debugging mode
+  static boolean used = true;
+  static String timeFormat = TimeMode.CLOCK.getFormat();
+  static boolean showInfo = true;
+  static boolean infoClicable = false;
+  static boolean showInfoFile = false;
+  static boolean showInfoClass = true;
+  static boolean showInfoMethod = true;
+  static boolean showInfoLine = true;
+  static Summary summary = Summary.START;
+  static boolean elapsing = true;
+  static Case titleCase = Case.CAMEL_SPACE;
+  static boolean viewDetection = true;
+  static boolean limitedLog = false;
 
   private Logz(final Builder builder) {
     tag = builder.tag;
@@ -261,7 +263,7 @@ public class Logz {
     firstInit();
     if (Logz.enable)
       if (Logz.used)
-        MrTable.table(rowModel, columnMethods);
+        MrTable.table(rowModel, columnMethods); // Self check
       else
         Log.i(Logz.tag, "⌬ (Table) " + Util.checkNullViewArray(rowModel));
   }
@@ -270,7 +272,8 @@ public class Logz {
   // region Biulder
   public static class Builder {
 
-    private String tag = "LOGZ";
+    // Tip: Values must be define in here and on biulder
+    private String tag = "⌬ LOGZ";
     private boolean enable = true;
     private boolean used = true;
     private String timeFormat = TimeMode.CLOCK.getFormat();

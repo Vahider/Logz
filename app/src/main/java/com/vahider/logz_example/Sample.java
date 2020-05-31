@@ -5,12 +5,9 @@ import android.os.Handler;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vahider.logz.Logz;
-import com.vahider.logz.enums.Case;
-import com.vahider.logz.enums.Info;
-import com.vahider.logz.enums.Summary;
-import com.vahider.logz.enums.TimeMode;
 
 import org.json.JSONArray;
 
@@ -30,23 +27,25 @@ public class Sample extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_sample);
 
-    new Logz.Builder()
-      .setTag("LOGZ")
-      .setEnable(true)
-      .setUsed(USED)
-      .showInfo(true)
-      .setInfoClickable(true)
-      .setTimeFormat(TimeMode.CLOCK)
-      .setInfoMode(Info.CLASS, Info.METHOD, Info.LINE)
-      .useSummaryMode(Summary.START)
-      .setTitleCase(Case.CAMEL_SPACE)
-      .showElapsing(true)
-      .useViewDetection(true)
-      .setLimitLength(true)
-      .reload();
+//    new Logz.Builder()
+//      .setTag("LOGZ")
+//      .setEnable(true)
+//      .setUsed(USED)
+//      .showInfo(true)
+//      .setInfoClickable(true)
+//      .setTimeFormat(TimeMode.CLOCK)
+//      .setInfoMode(Info.CLASS, Info.METHOD, Info.LINE)
+//      .useSummaryMode(Summary.START)
+//      .setTitleCase(Case.CAMEL_SPACE)
+//      .showElapsing(true)
+//      .useViewDetection(true)
+//      .setLimitLength(true)
+//      .reload();
 
-//    runExamples();
-    githubCompare();
+//    Logz.is("Hello world");
+
+    runExamples();
+//    githubCompare();
 
   }
 
@@ -298,7 +297,19 @@ public class Sample extends AppCompatActivity {
     rows.add(new User());
     rows.add(new User());
 //    data.add(null);
-    Logz.table(rows,/*null,*/"getId", "getName", "getEmail", "isRegister");
+    Logz.table(rows, "getId", "getName", "getEmail", "isRegister");
+    Logz.table(rows, "asd");
+    Logz.table(rows, null);
+    Logz.table(null, null);
+
+    rows.clear();
+    User u1000 = new User();
+    u1000.setId(2);
+    u1000.setName("قصد دارید تصمیمی بگیرید اما خودتان نمی توانید، ترجیح می دهید دیگران برایتان تصمیم بگیرند یا بصورت شانسی یک طرف را انتخاب کنید؟");
+    u1000.setEmail("ترجیح می دهید خودتان فرد مشهوری باشید یا بهترین دوست یک فرد مشهور باشید؟");
+    u1000.setRegister(true);
+    rows.add(u1000);
+    Logz.table(rows, "getId", "getName", "getEmail", "isRegister");
 
 //    long t1 = System.currentTimeMillis();
 //    for (int i = 0; i < 1000; i++)
@@ -321,6 +332,7 @@ public class Sample extends AppCompatActivity {
     new Handler().postDelayed(new Runnable() {
       @Override
       public void run() {
+        Toast.makeText(Sample.this, "Intentional error", Toast.LENGTH_SHORT).show();
         throw null; // in main thread
       }
     }, 4000);

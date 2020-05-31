@@ -84,9 +84,12 @@ public class Util {
   }
 
   static String fillSpace(char repeat, int length) {
-    char[] chars = new char[length];
-    Arrays.fill(chars, repeat);
-    return new String(chars);
+    if (length >= 0) {
+      char[] chars = new char[length];
+      Arrays.fill(chars, repeat);
+      return new String(chars);
+    }
+    return "";
   }
 
   static String fixSpaceExtra(String text, char repeat, int max) { // for Decimal

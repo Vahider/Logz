@@ -6,20 +6,24 @@ import java.util.List;
 
 class MrTable {
 
+  private static final int maxWord = 100;
+
   static void table(List rowModel, String... columnMethods) {
+    if (rowModel == null) {
+      MrLog.error("Table, Rows not valid", rowModel, 1);
+    } else if (columnMethods == null) {
+      MrLog.error("Table, ColumnMethods not valid", columnMethods, 1);
+    } else {
       for (int i = 0; i < columnMethods.length; i++)
         columnMethods[i] = String.valueOf(Util.checkNullViewArray(columnMethods[i]));
-      if (rowModel != null)
-        draw(rowModel, columnMethods);
-      else
-        MrLog.error("Table, Rows not valid", rowModel, 1);
+      draw(rowModel, columnMethods);
+    }
   }
 
   private static void draw(List rowModel, String... columnMethods) {
 
     // Method 1
     try {
-      int maxWord = 100;
       int[] maxWordPerColumn = new int[columnMethods.length];
 
       // Get max length from every column
@@ -43,8 +47,11 @@ class MrTable {
       // Columns
       StringBuilder title = new StringBuilder();
       for (int i = 0; i < columnMethods.length; i++) {
-        String space = Util.fillSpace(' ', (maxWordPerColumn[i] - columnMethods[i].length()) / 2);
-        String newColumn = "ǁ" + space + " " + columnMethods[i] + " " + space; // ǀǁ \u0009(4chars spaces) are utf-8
+        String text = columnMethods[i];
+        if (text.length() > maxWord)
+          text = text.substring(0, maxWord - 1) + "‥"; // 1 * '‥'
+        String space = Util.fillSpace(' ', (maxWordPerColumn[i] - text.length()) / 2);
+        String newColumn = "ǁ" + space + " " + text + " " + space; // ǀǁ \u0009(4chars spaces) are utf-8
         newColumn = Util.fixSpaceExtra(newColumn, ' ', maxWordPerColumn[i] + 3); // 1 "┃" and 2 " "
         title.append(newColumn);
       }
@@ -62,8 +69,11 @@ class MrTable {
         StringBuilder desc = new StringBuilder();
         for (int i = 0; i < columnMethods.length; i++) {
           Method method = row.getClass().getMethod(columnMethods[i]);
-          String space = Util.fillSpace(' ', (maxWordPerColumn[i] - String.valueOf(method.invoke(row)).length()) / 2);
-          String newRow = "ǁ" + space + " " + method.invoke(row) + " " + space;
+          String text = String.valueOf(method.invoke(row));
+          if (text.length() > maxWord)
+            text = text.substring(0, maxWord - 1) + "‥"; // 1 * '‥'
+          String space = Util.fillSpace(' ', (maxWordPerColumn[i] - text.length()) / 2);
+          String newRow = "ǁ" + space + " " + text + " " + space;
           newRow = Util.fixSpaceExtra(newRow, ' ', maxWordPerColumn[i] + 3); // 1 "┃" and 2 " "
           desc.append(newRow);
         }
