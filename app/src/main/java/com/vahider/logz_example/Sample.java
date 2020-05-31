@@ -8,6 +8,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vahider.logz.Logz;
+import com.vahider.logz.enums.Case;
+import com.vahider.logz.enums.Info;
+import com.vahider.logz.enums.Summary;
+import com.vahider.logz.enums.TimeMode;
 
 import org.json.JSONArray;
 
@@ -27,20 +31,20 @@ public class Sample extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_sample);
 
-//    new Logz.Builder()
-//      .setTag("LOGZ")
-//      .setEnable(true)
-//      .setUsed(USED)
-//      .showInfo(true)
-//      .setInfoClickable(true)
-//      .setTimeFormat(TimeMode.CLOCK)
-//      .setInfoMode(Info.CLASS, Info.METHOD, Info.LINE)
-//      .useSummaryMode(Summary.START)
-//      .setTitleCase(Case.CAMEL_SPACE)
-//      .showElapsing(true)
-//      .useViewDetection(true)
-//      .setLimitLength(true)
-//      .reload();
+    new Logz.Builder()
+      .setTag("LOGZ")
+      .setEnable(true)
+      .setUsed(USED)
+      .showInfo(true)
+      .setInfoClickable(true)
+      .setTimeFormat(TimeMode.CLOCK)
+      .setInfoMode(Info.CLASS, Info.METHOD, Info.LINE)
+      .useSummaryMode(Summary.START)
+      .setTitleCase(Case.CAMEL_SPACE)
+      .showElapsing(true)
+      .useViewDetection(true)
+      .setLimitLength(true)
+      .reload();
 
 //    Logz.is("Hello world");
 

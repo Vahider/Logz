@@ -24,7 +24,7 @@ Very simple, practical, attractive and powerful logger for android
 ## Setup
 ###### in `biuld.gradle (Module app)`
 ```
-implementation 'com.github.vahider:logz:1.5.9'
+implementation 'com.github.vahider:logz:1.6.1'
 ```
 ###### in `biuld.gradle (project)`
 ```
@@ -72,7 +72,7 @@ Logz.table(list, Name of methods as reflection);
 ###### They are default and Optional values, for not changing you can remove line of options.
 ```
 new Logz.Builder()
-      .setTag("LOGZ")
+      .setTag("⌬ LOGZ")
       .setEnable(true)
       .setUsed(true)
       .showInfo(true)
@@ -89,7 +89,7 @@ new Logz.Builder()
 
 Method | Default | Arguments | Description | Usage
 ---|---|---|---|---
-setTag | "LOGZ" | Anything | rename log tag | To follow the logs in Logcat, read more in the settings
+setTag | "⌬ LOGZ" | Anything | rename log tag | To follow the logs in Logcat, read more in the settings
 setEnable | true | `true` `false` | To turn off the logz | You can disable it when you publish
 setUsed | true | `true` `false` | To disable the Logz engine and use the default log | When browsing a few thousand logs, to increase speed
 showInfo | true | `true` `false` | Show log time and address | Set `true` when you want to see the log information
